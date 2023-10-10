@@ -1,0 +1,40 @@
+.load-item{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+}
+
+.load-item h4{
+    margin: 0;
+    padding: 0;
+}
+
+.load-item > * {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.load-item span{
+    color: grey;
+}
+
+.load-item__label{
+    font-size: 10px;
+}
+
+.load-item__pick-drop a{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.load-item__pick-drop__img{
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}

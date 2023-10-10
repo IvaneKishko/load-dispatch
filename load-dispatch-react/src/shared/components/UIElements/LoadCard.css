@@ -1,0 +1,36 @@
+.load-card img{
+    height: 200px;
+    width: auto;
+}
+
+.load-card{
+    margin: 5rem auto;
+    border-radius: 5px;
+    display: flex;
+    padding: 50px 75px;
+    justify-content: space-between;
+    background-color: #F2F2F2;
+    align-items: center;
+    width: 80%;
+}
+
+.load-card h4{
+    margin: 0;
+}
+
+.load-card__auto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.load-card__content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.load-item__label{
+    margin-top: 20px;
+}

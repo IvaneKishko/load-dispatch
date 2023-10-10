@@ -1,0 +1,2102 @@
+[
+  {
+    "city": "New York",
+    "state": "NY",
+    "zip_code": "10001",
+    "latitude": "40.7506",
+    "longitude": "-73.9972"
+  },
+  {
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip_code": "90001",
+    "latitude": "33.9737",
+    "longitude": "-118.2487"
+  },
+  {
+    "city": "Chicago",
+    "state": "IL",
+    "zip_code": "60601",
+    "latitude": "41.8869",
+    "longitude": "-87.6260"
+  },
+  {
+    "city": "Houston",
+    "state": "TX",
+    "zip_code": "77001",
+    "latitude": "29.7604",
+    "longitude": "-95.3698"
+  },
+  {
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip_code": "85001",
+    "latitude": "33.4484",
+    "longitude": "-112.0740"
+  },
+  {
+    "city": "Philadelphia",
+    "state": "PA",
+    "zip_code": "19101",
+    "latitude": "39.9526",
+    "longitude": "-75.1652"
+  },
+  {
+    "city": "San Antonio",
+    "state": "TX",
+    "zip_code": "78201",
+    "latitude": "29.4241",
+    "longitude": "-98.4936"
+  },
+  {
+    "city": "San Diego",
+    "state": "CA",
+    "zip_code": "92101",
+    "latitude": "32.7157",
+    "longitude": "-117.1611"
+  },
+  {
+    "city": "Dallas",
+    "state": "TX",
+    "zip_code": "75201",
+    "latitude": "32.7767",
+    "longitude": "-96.7970"
+  },
+  {
+    "city": "San Jose",
+    "state": "CA",
+    "zip_code": "95101",
+    "latitude": "37.3541",
+    "longitude": "-121.9552"
+  },
+  {
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "73301",
+    "latitude": "30.2672",
+    "longitude": "-97.7431"
+  },
+  {
+    "city": "Jacksonville",
+    "state": "FL",
+    "zip_code": "32099",
+    "latitude": "30.3322",
+    "longitude": "-81.6557"
+  },
+  {
+    "city": "Fort Worth",
+    "state": "TX",
+    "zip_code": "76101",
+    "latitude": "32.7555",
+    "longitude": "-97.3308"
+  },
+  {
+    "city": "Columbus",
+    "state": "OH",
+    "zip_code": "43085",
+    "latitude": "40.1006",
+    "longitude": "-83.0149"
+  },
+  {
+    "city": "Charlotte",
+    "state": "NC",
+    "zip_code": "28201",
+    "latitude": "35.2271",
+    "longitude": "-80.8431"
+  },
+  {
+    "city": "San Francisco",
+    "state": "CA",
+    "zip_code": "94101",
+    "latitude": "37.7749",
+    "longitude": "-122.4194"
+  },
+  {
+    "city": "Indianapolis",
+    "state": "IN",
+    "zip_code": "46201",
+    "latitude": "39.7684",
+    "longitude": "-86.1581"
+  },
+  {
+    "city": "Seattle",
+    "state": "WA",
+    "zip_code": "98101",
+    "latitude": "47.6062",
+    "longitude": "-122.3321"
+  },
+  {
+    "city": "Denver",
+    "state": "CO",
+    "zip_code": "80201",
+    "latitude": "39.7392",
+    "longitude": "-104.9903"
+  },
+  {
+    "city": "Washington",
+    "state": "DC",
+    "zip_code": "20001",
+    "latitude": "38.8951",
+    "longitude": "-77.0369"
+  },
+  {
+    "city": "Boston",
+    "state": "MA",
+    "zip_code": "02101",
+    "latitude": "42.3601",
+    "longitude": "-71.0589"
+  },
+  {
+    "city": "El Paso",
+    "state": "TX",
+    "zip_code": "79901",
+    "latitude": "31.7592",
+    "longitude": "-106.4877"
+  },
+  {
+    "city": "Nashville",
+    "state": "TN",
+    "zip_code": "37201",
+    "latitude": "36.1745",
+    "longitude": "-86.7930"
+  },
+  {
+    "city": "Detroit",
+    "state": "MI",
+    "zip_code": "48201",
+    "latitude": "42.3314",
+    "longitude": "-83.0458"
+  },
+  {
+    "city": "Oklahoma City",
+    "state": "OK",
+    "zip_code": "73101",
+    "latitude": "35.4634",
+    "longitude": "-97.5151"
+  },
+  {
+    "city": "Portland",
+    "state": "OR",
+    "zip_code": "97086",
+    "latitude": "45.5155",
+    "longitude": "-122.6793"
+  },
+  {
+    "city": "Las Vegas",
+    "state": "NV",
+    "zip_code": "89101",
+    "latitude": "36.1699",
+    "longitude": "-115.1398"
+  },
+  {
+    "city": "Memphis",
+    "state": "TN",
+    "zip_code": "38103",
+    "latitude": "35.1495",
+    "longitude": "-90.0490"
+  },
+  {
+    "city": "Louisville",
+    "state": "KY",
+    "zip_code": "40202",
+    "latitude": "38.2527",
+    "longitude": "-85.7585"
+  },
+  {
+    "city": "Baltimore",
+    "state": "MD",
+    "zip_code": "21202",
+    "latitude": "39.2904",
+    "longitude": "-76.6122"
+  },
+  {
+    "city": "Milwaukee",
+    "state": "WI",
+    "zip_code": "53201",
+    "latitude": "43.0389",
+    "longitude": "-87.9065"
+  },
+  {
+    "city": "Albuquerque",
+    "state": "NM",
+    "zip_code": "87101",
+    "latitude": "35.0844",
+    "longitude": "-106.6504"
+  },
+  {
+    "city": "Tucson",
+    "state": "AZ",
+    "zip_code": "85701",
+    "latitude": "32.2226",
+    "longitude": "-110.9747"
+  },
+  {
+    "city": "Fresno",
+    "state": "CA",
+    "zip_code": "93650",
+    "latitude": "36.7468",
+    "longitude": "-119.7726"
+  },
+  {
+    "city": "Mesa",
+    "state": "AZ",
+    "zip_code": "85201",
+    "latitude": "33.4152",
+    "longitude": "-111.8315"
+  },
+  {
+    "city": "Sacramento",
+    "state": "CA",
+    "zip_code": "95814",
+    "latitude": "38.5816",
+    "longitude": "-121.4944"
+  },
+  {
+    "city": "Atlanta",
+    "state": "GA",
+    "zip_code": "30301",
+    "latitude": "33.7490",
+    "longitude": "-84.3880"
+  },
+  {
+    "city": "Kansas City",
+    "state": "MO",
+    "zip_code": "64101",
+    "latitude": "39.0997",
+    "longitude": "-94.5786"
+  },
+  {
+    "city": "Colorado Springs",
+    "state": "CO",
+    "zip_code": "80901",
+    "latitude": "38.8339",
+    "longitude": "-104.8214"
+  },
+  {
+    "city": "Miami",
+    "state": "FL",
+    "zip_code": "33101",
+    "latitude": "25.7617",
+    "longitude": "-80.1918"
+  },
+  {
+    "city": "Raleigh",
+    "state": "NC",
+    "zip_code": "27601",
+    "latitude": "35.7796",
+    "longitude": "-78.6382"
+  },
+  {
+    "city": "Omaha",
+    "state": "NE",
+    "zip_code": "68101",
+    "latitude": "41.2565",
+    "longitude": "-95.9345"
+  },
+  {
+    "city": "Long Beach",
+    "state": "CA",
+    "zip_code": "90801",
+    "latitude": "33.7683",
+    "longitude": "-118.1956"
+  },
+  {
+    "city": "Virginia Beach",
+    "state": "VA",
+    "zip_code": "23450",
+    "latitude": "36.8529",
+    "longitude": "-75.9780"
+  },
+  {
+    "city": "Oakland",
+    "state": "CA",
+    "zip_code": "94601",
+    "latitude": "37.8049",
+    "longitude": "-122.2711"
+  },
+  {
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip_code": "55401",
+    "latitude": "44.9778",
+    "longitude": "-93.2650"
+  },
+  {
+    "city": "Tulsa",
+    "state": "OK",
+    "zip_code": "74101",
+    "latitude": "36.1540",
+    "longitude": "-95.9928"
+  },
+  {
+    "city": "Arlington",
+    "state": "TX",
+    "zip_code": "76001",
+    "latitude": "32.7357",
+    "longitude": "-97.1081"
+  },
+  {
+    "city": "Tampa",
+    "state": "FL",
+    "zip_code": "33601",
+    "latitude": "27.9506",
+    "longitude": "-82.4572"
+  },
+  {
+    "city": "New Orleans",
+    "state": "LA",
+    "zip_code": "70112",
+    "latitude": "29.9511",
+    "longitude": "-90.0715"
+  },
+  {
+    "city": "Wichita",
+    "state": "KS",
+    "zip_code": "67201",
+    "latitude": "37.6872",
+    "longitude": "-97.3301"
+  },
+  {
+    "city": "Cleveland",
+    "state": "OH",
+    "zip_code": "44101",
+    "latitude": "41.4993",
+    "longitude": "-81.6944"
+  },
+  {
+    "city": "Bakersfield",
+    "state": "CA",
+    "zip_code": "93301",
+    "latitude": "35.3733",
+    "longitude": "-119.0178"
+  },
+  {
+    "city": "Aurora",
+    "state": "CO",
+    "zip_code": "80010",
+    "latitude": "39.7368",
+    "longitude": "-104.8642"
+  },
+  {
+    "city": "Anaheim",
+    "state": "CA",
+    "zip_code": "92801",
+    "latitude": "33.8353",
+    "longitude": "-117.9145"
+  },
+  {
+    "city": "Honolulu",
+    "state": "HI",
+    "zip_code": "96801",
+    "latitude": "21.3069",
+    "longitude": "-157.8583"
+  },
+  {
+    "city": "Santa Ana",
+    "state": "CA",
+    "zip_code": "92701",
+    "latitude": "33.7489",
+    "longitude": "-117.8708"
+  },
+  {
+    "city": "Riverside",
+    "state": "CA",
+    "zip_code": "92501",
+    "latitude": "33.9461",
+    "longitude": "-117.3893"
+  },
+  {
+    "city": "Corpus Christi",
+    "state": "TX",
+    "zip_code": "78401",
+    "latitude": "27.8006",
+    "longitude": "-97.3964"
+  },
+  {
+    "city": "Lexington",
+    "state": "KY",
+    "zip_code": "40502",
+    "latitude": "38.0406",
+    "longitude": "-84.5037"
+  },
+  {
+    "city": "Henderson",
+    "state": "NV",
+    "zip_code": "89002",
+    "latitude": "36.0395",
+    "longitude": "-114.9817"
+  },
+  {
+    "city": "Stockton",
+    "state": "CA",
+    "zip_code": "95201",
+    "latitude": "37.9577",
+    "longitude": "-121.2908"
+  },
+  {
+    "city": "Saint Paul",
+    "state": "MN",
+    "zip_code": "55101",
+    "latitude": "44.9375",
+    "longitude": "-93.1039"
+  },
+  {
+    "city": "Cincinnati",
+    "state": "OH",
+    "zip_code": "45201",
+    "latitude": "39.1031",
+    "longitude": "-84.5120"
+  },
+  {
+    "city": "St. Louis",
+    "state": "MO",
+    "zip_code": "63101",
+    "latitude": "38.6270",
+    "longitude": "-90.1994"
+  },
+  {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "zip_code": "15201",
+    "latitude": "40.4419",
+    "longitude": "-79.9969"
+  },
+  {
+    "city": "Greensboro",
+    "state": "NC",
+    "zip_code": "27401",
+    "latitude": "36.0705",
+    "longitude": "-79.7695"
+  },
+  {
+    "city": "Lincoln",
+    "state": "NE",
+    "zip_code": "68501",
+    "latitude": "40.8136",
+    "longitude": "-96.7026"
+  },
+  {
+    "city": "Anchorage",
+    "state": "AK",
+    "zip_code": "99501",
+    "latitude": "61.2176",
+    "longitude": "-149.8938"
+  },
+  {
+    "city": "Plano",
+    "state": "TX",
+    "zip_code": "75023",
+    "latitude": "33.0574",
+    "longitude": "-96.7305"
+  },
+  {
+    "city": "Orlando",
+    "state": "FL",
+    "zip_code": "32801",
+    "latitude": "28.5383",
+    "longitude": "-81.3792"
+  },
+  {
+    "city": "Irvine",
+    "state": "CA",
+    "zip_code": "92602",
+    "latitude": "33.6872",
+    "longitude": "-117.7728"
+  },
+  {
+    "city": "Newark",
+    "state": "NJ",
+    "zip_code": "07101",
+    "latitude": "40.7357",
+    "longitude": "-74.1724"
+  },
+  {
+    "city": "Toledo",
+    "state": "OH",
+    "zip_code": "43601",
+    "latitude": "41.6639",
+    "longitude": "-83.5552"
+  },
+  {
+    "city": "Durham",
+    "state": "NC",
+    "zip_code": "27701",
+    "latitude": "35.9932",
+    "longitude": "-78.8966"
+  },
+  {
+    "city": "Chula Vista",
+    "state": "CA",
+    "zip_code": "91909",
+    "latitude": "32.6401",
+    "longitude": "-117.0842"
+  },
+  {
+    "city": "Fort Wayne",
+    "state": "IN",
+    "zip_code": "46801",
+    "latitude": "41.0792",
+    "longitude": "-85.1394"
+  },
+  {
+    "city": "Jersey City",
+    "state": "NJ",
+    "zip_code": "07302",
+    "latitude": "40.7177",
+    "longitude": "-74.0431"
+  },
+  {
+    "city": "St. Petersburg",
+    "state": "FL",
+    "zip_code": "33701",
+    "latitude": "27.7676",
+    "longitude": "-82.6403"
+  },
+  {
+    "city": "Laredo",
+    "state": "TX",
+    "zip_code": "78040",
+    "latitude": "27.5616",
+    "longitude": "-99.4877"
+  },
+  {
+    "city": "Madison",
+    "state": "WI",
+    "zip_code": "53701",
+    "latitude": "43.0731",
+    "longitude": "-89.4012"
+  },
+  {
+    "city": "Chandler",
+    "state": "AZ",
+    "zip_code": "85224",
+    "latitude": "33.3039",
+    "longitude": "-111.7854"
+  },
+  {
+    "city": "Buffalo",
+    "state": "NY",
+    "zip_code": "14201",
+    "latitude": "42.8865",
+    "longitude": "-78.8784"
+  },
+  {
+    "city": "Lubbock",
+    "state": "TX",
+    "zip_code": "79401",
+    "latitude": "33.5904",
+    "longitude": "-101.8481"
+  },
+  {
+    "city": "Scottsdale",
+    "state": "AZ",
+    "zip_code": "85250",
+    "latitude": "33.5722",
+    "longitude": "-111.8950"
+  },
+  {
+    "city": "Reno",
+    "state": "NV",
+    "zip_code": "89501",
+    "latitude": "39.5261",
+    "longitude": "-119.8127"
+  },
+  {
+    "city": "Glendale",
+    "state": "AZ",
+    "zip_code": "85301",
+    "latitude": "33.5387",
+    "longitude": "-112.1860"
+  },
+  {
+    "city": "Gilbert",
+    "state": "AZ",
+    "zip_code": "85234",
+    "latitude": "33.3528",
+    "longitude": "-111.7890"
+  },
+  {
+    "city": "Winston-Salem",
+    "state": "NC",
+    "zip_code": "27101",
+    "latitude": "36.0955",
+    "longitude": "-80.2684"
+  },
+  {
+    "city": "North Las Vegas",
+    "state": "NV",
+    "zip_code": "89030",
+    "latitude": "36.2007",
+    "longitude": "-115.1212"
+  },
+  {
+    "city": "Norfolk",
+    "state": "VA",
+    "zip_code": "23501",
+    "latitude": "36.9125",
+    "longitude": "-76.2629"
+  },
+  {
+    "city": "Chesapeake",
+    "state": "VA",
+    "zip_code": "23320",
+    "latitude": "36.7819",
+    "longitude": "-76.2526"
+  },
+  {
+    "city": "Garland",
+    "state": "TX",
+    "zip_code": "75040",
+    "latitude": "32.9098",
+    "longitude": "-96.6304"
+  },
+  {
+    "city": "Irving",
+    "state": "TX",
+    "zip_code": "75060",
+    "latitude": "32.8140",
+    "longitude": "-96.9489"
+  },
+  {
+    "city": "Hialeah",
+    "state": "FL",
+    "zip_code": "33002",
+    "latitude": "25.8699",
+    "longitude": "-80.3029"
+  },
+  {
+    "city": "Fremont",
+    "state": "CA",
+    "zip_code": "94536",
+    "latitude": "37.5483",
+    "longitude": "-121.9872"
+  },
+  {
+    "city": "Boise",
+    "state": "ID",
+    "zip_code": "83701",
+    "latitude": "43.6150",
+    "longitude": "-116.2023"
+  },
+  {
+    "city": "Richmond",
+    "state": "VA",
+    "zip_code": "23218",
+    "latitude": "37.5385",
+    "longitude": "-77.4344"
+  },
+  {
+    "city": "Baton Rouge",
+    "state": "LA",
+    "zip_code": "70801",
+    "latitude": "30.4571",
+    "longitude": "-91.1874"
+  },
+  {
+    "city": "Spokane",
+    "state": "WA",
+    "zip_code": "99201",
+    "latitude": "47.6669",
+    "longitude": "-117.4349"
+  },
+  {
+    "city": "Des Moines",
+    "state": "IA",
+    "zip_code": "50301",
+    "latitude": "41.6005",
+    "longitude": "-93.6091"
+  },
+  {
+    "city": "Tacoma",
+    "state": "WA",
+    "zip_code": "98401",
+    "latitude": "47.2529",
+    "longitude": "-122.4443"
+  },
+  {
+    "city": "Oxnard",
+    "state": "CA",
+    "zip_code": "93030",
+    "latitude": "34.1975",
+    "longitude": "-119.1771"
+  },
+  {
+    "city": "Fontana",
+    "state": "CA",
+    "zip_code": "92335",
+    "latitude": "34.0922",
+    "longitude": "-117.4350"
+  },
+  {
+    "city": "Columbus",
+    "state": "GA",
+    "zip_code": "31901",
+    "latitude": "32.4610",
+    "longitude": "-84.9890"
+  },
+  {
+    "city": "Montgomery",
+    "state": "AL",
+    "zip_code": "36101",
+    "latitude": "32.3792",
+    "longitude": "-86.3077"
+  },
+  {
+    "city": "Moreno Valley",
+    "state": "CA",
+    "zip_code": "92551",
+    "latitude": "33.9375",
+    "longitude": "-117.2306"
+  },
+  {
+    "city": "Shreveport",
+    "state": "LA",
+    "zip_code": "71101",
+    "latitude": "32.5149",
+    "longitude": "-93.7479"
+  },
+  {
+    "city": "Aurora",
+    "state": "IL",
+    "zip_code": "60504",
+    "latitude": "41.7606",
+    "longitude": "-88.3201"
+  },
+  {
+    "city": "Yonkers",
+    "state": "NY",
+    "zip_code": "10701",
+    "latitude": "40.9465",
+    "longitude": "-73.8674"
+  },
+  {
+    "city": "Akron",
+    "state": "OH",
+    "zip_code": "44301",
+    "latitude": "41.0814",
+    "longitude": "-81.5190"
+  },
+  {
+    "city": "Huntsville",
+    "state": "AL",
+    "zip_code": "35801",
+    "latitude": "34.7304",
+    "longitude": "-86.5861"
+  },
+  {
+    "city": "Augusta",
+    "state": "GA",
+    "zip_code": "30901",
+    "latitude": "33.4727",
+    "longitude": "-81.9668"
+  },
+  {
+    "city": "Grand Rapids",
+    "state": "MI",
+    "zip_code": "49501",
+    "latitude": "42.9634",
+    "longitude": "-85.6681"
+  },
+  {
+    "city": "Mobile",
+    "state": "AL",
+    "zip_code": "36601",
+    "latitude": "30.6944",
+    "longitude": "-88.0431"
+  },
+  {
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zip_code": "84101",
+    "latitude": "40.7608",
+    "longitude": "-111.8910"
+  },
+  {
+    "city": "Tallahassee",
+    "state": "FL",
+    "zip_code": "32301",
+    "latitude": "30.4383",
+    "longitude": "-84.2807"
+  },
+  {
+    "city": "Worcester",
+    "state": "MA",
+    "zip_code": "01601",
+    "latitude": "42.2706",
+    "longitude": "-71.8079"
+  },
+  {
+    "city": "Newport News",
+    "state": "VA",
+    "zip_code": "23601",
+    "latitude": "37.0710",
+    "longitude": "-76.4849"
+  },
+  {
+    "city": "Knoxville",
+    "state": "TN",
+    "zip_code": "37901",
+    "latitude": "35.9606",
+    "longitude": "-83.9207"
+  },
+  {
+    "city": "Providence",
+    "state": "RI",
+    "zip_code": "02901",
+    "latitude": "41.8210",
+    "longitude": "-71.4141"
+  },
+  {
+    "city": "Santa Clarita",
+    "state": "CA",
+    "zip_code": "91310",
+    "latitude": "34.4133",
+    "longitude": "-118.5504"
+  },
+  {
+    "city": "Grand Prairie",
+    "state": "TX",
+    "zip_code": "75050",
+    "latitude": "32.6884",
+    "longitude": "-97.0152"
+  },
+  {
+    "city": "Brownsville",
+    "state": "TX",
+    "zip_code": "78520",
+    "latitude": "25.9018",
+    "longitude": "-97.4975"
+  },
+  {
+    "city": "Jackson",
+    "state": "MS",
+    "zip_code": "39201",
+    "latitude": "32.3204",
+    "longitude": "-90.2081"
+  },
+  {
+    "city": "Overland Park",
+    "state": "KS",
+    "zip_code": "66204",
+    "latitude": "38.9869",
+    "longitude": "-94.6765"
+  },
+  {
+    "city": "Garden Grove",
+    "state": "CA",
+    "zip_code": "92840",
+    "latitude": "33.7777",
+    "longitude": "-117.9371"
+  },
+  {
+    "city": "Santa Rosa",
+    "state": "CA",
+    "zip_code": "95401",
+    "latitude": "38.4468",
+    "longitude": "-122.7061"
+  },
+  {
+    "city": "Chattanooga",
+    "state": "TN",
+    "zip_code": "37401",
+    "latitude": "35.0456",
+    "longitude": "-85.3097"
+  },
+  {
+    "city": "Oceanside",
+    "state": "CA",
+    "zip_code": "92049",
+    "latitude": "33.2240",
+    "longitude": "-117.3087"
+  },
+  {
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "zip_code": "33301",
+    "latitude": "26.1224",
+    "longitude": "-80.1373"
+  },
+  {
+    "city": "Rancho Cucamonga",
+    "state": "CA",
+    "zip_code": "91729",
+    "latitude": "34.1495",
+    "longitude": "-117.5251"
+  },
+  {
+    "city": "Port St. Lucie",
+    "state": "FL",
+    "zip_code": "34952",
+    "latitude": "27.2806",
+    "longitude": "-80.3883"
+  },
+  {
+    "city": "Ontario",
+    "state": "CA",
+    "zip_code": "91758",
+    "latitude": "34.0633",
+    "longitude": "-117.6509"
+  },
+  {
+    "city": "Vancouver",
+    "state": "WA",
+    "zip_code": "98660",
+    "latitude": "45.6387",
+    "longitude": "-122.6615"
+  },
+  {
+    "city": "Tempe",
+    "state": "AZ",
+    "zip_code": "85280",
+    "latitude": "33.3884",
+    "longitude": "-111.9318"
+  },
+  {
+    "city": "Springfield",
+    "state": "MO",
+    "zip_code": "65801",
+    "latitude": "37.2146",
+    "longitude": "-93.2926"
+  },
+  {
+    "city": "Lancaster",
+    "state": "CA",
+    "zip_code": "93534",
+    "latitude": "34.6936",
+    "longitude": "-118.1753"
+  },
+  {
+    "city": "Cape Coral",
+    "state": "FL",
+    "zip_code": "33904",
+    "latitude": "26.6432",
+    "longitude": "-81.9974"
+  },
+  {
+    "city": "Pembroke Pines",
+    "state": "FL",
+    "zip_code": "33082",
+    "latitude": "26.0145",
+    "longitude": "-80.3168"
+  },
+  {
+    "city": "Elk Grove",
+    "state": "CA",
+    "zip_code": "95758",
+    "latitude": "38.4170",
+    "longitude": "-121.4843"
+  },
+  {
+    "city": "Salem",
+    "state": "OR",
+    "zip_code": "97309",
+    "latitude": "44.9429",
+    "longitude": "-123.0351"
+  },
+  {
+    "city": "Lakewood",
+    "state": "CO",
+    "zip_code": "80228",
+    "latitude": "39.6989",
+    "longitude": "-105.1176"
+  },
+  {
+    "city": "Springfield",
+    "state": "MA",
+    "zip_code": "01101",
+    "latitude": "42.1155",
+    "longitude": "-72.5400"
+  },
+  {
+    "city": "Pasadena",
+    "state": "TX",
+    "zip_code": "77501",
+    "latitude": "29.6669",
+    "longitude": "-95.1638"
+  },
+  {
+    "city": "Rockford",
+    "state": "IL",
+    "zip_code": "61101",
+    "latitude": "42.2711",
+    "longitude": "-89.0937"
+  },
+  {
+    "city": "Palmdale",
+    "state": "CA",
+    "zip_code": "93550",
+    "latitude": "34.5944",
+    "longitude": "-118.1057"
+  },
+  {
+    "city": "Corona",
+    "state": "CA",
+    "zip_code": "92877",
+    "latitude": "33.8583",
+    "longitude": "-117.5360"
+  },
+  {
+    "city": "Salinas",
+    "state": "CA",
+    "zip_code": "93901",
+    "latitude": "36.6852",
+    "longitude": "-121.6435"
+  },
+  {
+    "city": "Pomona",
+    "state": "CA",
+    "zip_code": "91797",
+    "latitude": "34.0551",
+    "longitude": "-117.7499"
+  },
+  {
+    "city": "Pasadena",
+    "state": "CA",
+    "zip_code": "91101",
+    "latitude": "34.1466",
+    "longitude": "-118.1392"
+  },
+  {
+    "city": "Joliet",
+    "state": "IL",
+    "zip_code": "60431",
+    "latitude": "41.5460",
+    "longitude": "-88.1319"
+  },
+  {
+    "city": "Paterson",
+    "state": "NJ",
+    "zip_code": "07501",
+    "latitude": "40.9190",
+    "longitude": "-74.1605"
+  },
+  {
+    "city": "Kansas City",
+    "state": "KS",
+    "zip_code": "66101",
+    "latitude": "39.1142",
+    "longitude": "-94.6275"
+  },
+  {
+    "city": "Torrance",
+    "state": "CA",
+    "zip_code": "90501",
+    "latitude": "33.8302",
+    "longitude": "-118.3149"
+  },
+  {
+    "city": "Syracuse",
+    "state": "NY",
+    "zip_code": "13201",
+    "latitude": "43.0481",
+    "longitude": "-76.1474"
+  },
+  {
+    "city": "Bridgeport",
+    "state": "CT",
+    "zip_code": "06601",
+    "latitude": "41.1865",
+    "longitude": "-73.1952"
+  },
+  {
+    "city": "Hayward",
+    "state": "CA",
+    "zip_code": "94540",
+    "latitude": "37.6688",
+    "longitude": "-122.0808"
+  },
+  {
+    "city": "Fort Collins",
+    "state": "CO",
+    "zip_code": "80521",
+    "latitude": "40.5853",
+    "longitude": "-105.0844"
+  },
+  {
+    "city": "Escondido",
+    "state": "CA",
+    "zip_code": "92025",
+    "latitude": "33.1220",
+    "longitude": "-117.0826"
+  },
+  {
+    "city": "Lakeland",
+    "state": "FL",
+    "zip_code": "33801",
+    "latitude": "28.0426",
+    "longitude": "-81.9500"
+  },
+  {
+    "city": "Naperville",
+    "state": "IL",
+    "zip_code": "60540",
+    "latitude": "41.7587",
+    "longitude": "-88.1642"
+  },
+  {
+    "city": "Dayton",
+    "state": "OH",
+    "zip_code": "45401",
+    "latitude": "39.7589",
+    "longitude": "-84.1916"
+  },
+  {
+    "city": "Hollywood",
+    "state": "FL",
+    "zip_code": "33019",
+    "latitude": "26.0112",
+    "longitude": "-80.1495"
+  },
+  {
+    "city": "Sunnyvale",
+    "state": "CA",
+    "zip_code": "94085",
+    "latitude": "37.3887",
+    "longitude": "-122.0194"
+  },
+  {
+    "city": "Alexandria",
+    "state": "VA",
+    "zip_code": "22301",
+    "latitude": "38.8048",
+    "longitude": "-77.0469"
+  },
+  {
+    "city": "Mesquite",
+    "state": "TX",
+    "zip_code": "75149",
+    "latitude": "32.7629",
+    "longitude": "-96.5888"
+  },
+  {
+    "city": "Hampton",
+    "state": "VA",
+    "zip_code": "23630",
+    "latitude": "37.0318",
+    "longitude": "-76.3322"
+  },
+  {
+    "city": "McAllen",
+    "state": "TX",
+    "zip_code": "78501",
+    "latitude": "26.2159",
+    "longitude": "-98.2369"
+  },
+  {
+    "city": "Killeen",
+    "state": "TX",
+    "zip_code": "76540",
+    "latitude": "31.1162",
+    "longitude": "-97.7278"
+  },
+  {
+    "city": "Warren",
+    "state": "MI",
+    "zip_code": "48088",
+    "latitude": "42.5145",
+    "longitude": "-83.0147"
+  },
+  {
+    "city": "West Valley City",
+    "state": "UT",
+    "zip_code": "84118",
+    "latitude": "40.6889",
+    "longitude": "-112.0115"
+  },
+  {
+    "city": "Columbia",
+    "state": "SC",
+    "zip_code": "29201",
+    "latitude": "34.0007",
+    "longitude": "-81.0348"
+  },
+  {
+    "city": "New Haven",
+    "state": "CT",
+    "zip_code": "06501",
+    "latitude": "41.3108",
+    "longitude": "-72.9250"
+  },
+  {
+    "city": "Sterling Heights",
+    "state": "MI",
+    "zip_code": "48310",
+    "latitude": "42.5803",
+    "longitude": "-83.0302"
+  },
+  {
+    "city": "Olathe",
+    "state": "KS",
+    "zip_code": "66051",
+    "latitude": "38.8756",
+    "longitude": "-94.8521"
+  },
+  {
+    "city": "Miramar",
+    "state": "FL",
+    "zip_code": "33023",
+    "latitude": "25.9812",
+    "longitude": "-80.1798"
+  },
+  {
+    "city": "Thousand Oaks",
+    "state": "CA",
+    "zip_code": "91319",
+    "latitude": "34.1914",
+    "longitude": "-118.8755"
+  },
+  {
+    "city": "Frisco",
+    "state": "TX",
+    "zip_code": "75034",
+    "latitude": "33.1507",
+    "longitude": "-96.8236"
+  },
+  {
+    "city": "Cedar Rapids",
+    "state": "IA",
+    "zip_code": "52401",
+    "latitude": "41.9779",
+    "longitude": "-91.6656"
+  },
+  {
+    "city": "Topeka",
+    "state": "KS",
+    "zip_code": "66601",
+    "latitude": "39.0492",
+    "longitude": "-95.6775"
+  },
+  {
+    "city": "Visalia",
+    "state": "CA",
+    "zip_code": "93277",
+    "latitude": "36.3275",
+    "longitude": "-119.3234"
+  },
+  {
+    "city": "Waco",
+    "state": "TX",
+    "zip_code": "76701",
+    "latitude": "31.5545",
+    "longitude": "-97.1186"
+  },
+  {
+    "city": "Elizabeth",
+    "state": "NJ",
+    "zip_code": "07201",
+    "latitude": "40.6657",
+    "longitude": "-74.1938"
+  },
+  {
+    "city": "Bellevue",
+    "state": "WA",
+    "zip_code": "98004",
+    "latitude": "47.6104",
+    "longitude": "-122.2007"
+  },
+  {
+    "city": "Gainesville",
+    "state": "FL",
+    "zip_code": "32601",
+    "latitude": "29.6519",
+    "longitude": "-82.3248"
+  },
+  {
+    "city": "Simi Valley",
+    "state": "CA",
+    "zip_code": "93062",
+    "latitude": "34.2719",
+    "longitude": "-118.7120"
+  },
+  {
+    "city": "Charleston",
+    "state": "SC",
+    "zip_code": "29401",
+    "latitude": "32.7833",
+    "longitude": "-79.9370"
+  },
+  {
+    "city": "Carrollton",
+    "state": "TX",
+    "zip_code": "75006",
+    "latitude": "32.9726",
+    "longitude": "-96.8903"
+  },
+  {
+    "city": "Coral Springs",
+    "state": "FL",
+    "zip_code": "33065",
+    "latitude": "26.2712",
+    "longitude": "-80.2706"
+  },
+  {
+    "city": "Stamford",
+    "state": "CT",
+    "zip_code": "06901",
+    "latitude": "41.0534",
+    "longitude": "-73.5387"
+  },
+  {
+    "city": "Hartford",
+    "state": "CT",
+    "zip_code": "06101",
+    "latitude": "41.7661",
+    "longitude": "-72.6834"
+  },
+  {
+    "city": "Concord",
+    "state": "CA",
+    "zip_code": "94518",
+    "latitude": "37.9715",
+    "longitude": "-122.0717"
+  },
+  {
+    "city": "Roseville",
+    "state": "CA",
+    "zip_code": "95661",
+    "latitude": "38.7468",
+    "longitude": "-121.2610"
+  },
+  {
+    "city": "Thornton",
+    "state": "CO",
+    "zip_code": "80229",
+    "latitude": "39.9205",
+    "longitude": "-104.9419"
+  },
+  {
+    "city": "Kent",
+    "state": "WA",
+    "zip_code": "98030",
+    "latitude": "47.3887",
+    "longitude": "-122.2128"
+  },
+  {
+    "city": "Lafayette",
+    "state": "LA",
+    "zip_code": "70501",
+    "latitude": "30.2241",
+    "longitude": "-92.0198"
+  },
+  {
+    "city": "Surprise",
+    "state": "AZ",
+    "zip_code": "85374",
+    "latitude": "33.6681",
+    "longitude": "-112.3800"
+  },
+  {
+    "city": "Denton",
+    "state": "TX",
+    "zip_code": "76201",
+    "latitude": "33.2209",
+    "longitude": "-97.1305"
+  },
+  {
+    "city": "Victorville",
+    "state": "CA",
+    "zip_code": "92392",
+    "latitude": "34.5310",
+    "longitude": "-117.3249"
+  },
+  {
+    "city": "Evansville",
+    "state": "IN",
+    "zip_code": "47708",
+    "latitude": "37.9748",
+    "longitude": "-87.5558"
+  },
+  {
+    "city": "Beaumont",
+    "state": "TX",
+    "zip_code": "77701",
+    "latitude": "30.0852",
+    "longitude": "-94.1301"
+  },
+  {
+    "city": "Independence",
+    "state": "MO",
+    "zip_code": "64050",
+    "latitude": "39.0938",
+    "longitude": "-94.4156"
+  },
+  {
+    "city": "Provo",
+    "state": "UT",
+    "zip_code": "84601",
+    "latitude": "40.2444",
+    "longitude": "-111.6602"
+  },
+  {
+    "city": "Fairfield",
+    "state": "CA",
+    "zip_code": "94533",
+    "latitude": "38.2494",
+    "longitude": "-122.0406"
+  },
+  {
+    "city": "Clearwater",
+    "state": "FL",
+    "zip_code": "33755",
+    "latitude": "27.9769",
+    "longitude": "-82.7868"
+  },
+  {
+    "city": "Abilene",
+    "state": "TX",
+    "zip_code": "79601",
+    "latitude": "32.4487",
+    "longitude": "-99.7331"
+  },
+  {
+    "city": "West Jordan",
+    "state": "UT",
+    "zip_code": "84081",
+    "latitude": "40.6041",
+    "longitude": "-112.0035"
+  },
+  {
+    "city": "Murrieta",
+    "state": "CA",
+    "zip_code": "92562",
+    "latitude": "33.5659",
+    "longitude": "-117.2130"
+  },
+  {
+    "city": "Temecula",
+    "state": "CA",
+    "zip_code": "92589",
+    "latitude": "33.4936",
+    "longitude": "-117.1473"
+  },
+  {
+    "city": "Springfield",
+    "state": "IL",
+    "zip_code": "62701",
+    "latitude": "39.8017",
+    "longitude": "-89.6502"
+  },
+  {
+    "city": "Vallejo",
+    "state": "CA",
+    "zip_code": "94590",
+    "latitude": "38.1115",
+    "longitude": "-122.2386"
+  },
+  {
+    "city": "Eugene",
+    "state": "OR",
+    "zip_code": "97401",
+    "latitude": "44.0554",
+    "longitude": "-123.0912"
+  },
+  {
+    "city": "Pembroke Pines",
+    "state": "FL",
+    "zip_code": "33023",
+    "latitude": "26.0078",
+    "longitude": "-80.2963"
+  },
+  {
+    "city": "Peoria",
+    "state": "IL",
+    "zip_code": "61602",
+    "latitude": "40.6936",
+    "longitude": "-89.5909"
+  },
+  {
+    "city": "Allentown",
+    "state": "PA",
+    "zip_code": "18101",
+    "latitude": "40.6022",
+    "longitude": "-75.4704"
+  },
+  {
+    "city": "Savannah",
+    "state": "GA",
+    "zip_code": "31401",
+    "latitude": "32.0835",
+    "longitude": "-81.0998"
+  },
+  {
+    "city": "Coral Springs",
+    "state": "FL",
+    "zip_code": "33065",
+    "latitude": "26.2712",
+    "longitude": "-80.2706"
+  },
+  {
+    "city": "Palmdale",
+    "state": "CA",
+    "zip_code": "93550",
+    "latitude": "34.5794",
+    "longitude": "-118.1165"
+  },
+  {
+    "city": "Salinas",
+    "state": "CA",
+    "zip_code": "93901",
+    "latitude": "36.6777",
+    "longitude": "-121.6555"
+  },
+  {
+    "city": "Springfield",
+    "state": "MA",
+    "zip_code": "01101",
+    "latitude": "42.1015",
+    "longitude": "-72.5898"
+  },
+  {
+    "city": "Rialto",
+    "state": "CA",
+    "zip_code": "92376",
+    "latitude": "34.1118",
+    "longitude": "-117.3883"
+  },
+  {
+    "city": "Lakewood",
+    "state": "CO",
+    "zip_code": "80226",
+    "latitude": "39.7039",
+    "longitude": "-105.0814"
+  },
+  {
+    "city": "Santa Clara",
+    "state": "CA",
+    "zip_code": "95050",
+    "latitude": "37.3541",
+    "longitude": "-121.9552"
+  },
+  {
+    "city": "College Station",
+    "state": "TX",
+    "zip_code": "77840",
+    "latitude": "30.6279",
+    "longitude": "-96.3344"
+  },
+  {
+    "city": "Rochester",
+    "state": "MN",
+    "zip_code": "55901",
+    "latitude": "44.0234",
+    "longitude": "-92.4800"
+  },
+  {
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "zip_code": "33301",
+    "latitude": "26.1223",
+    "longitude": "-80.1434"
+  },
+  {
+    "city": "Lansing",
+    "state": "MI",
+    "zip_code": "48901",
+    "latitude": "42.7338",
+    "longitude": "-84.5555"
+  },
+  {
+    "city": "Clarksville",
+    "state": "TN",
+    "zip_code": "37040",
+    "latitude": "36.5298",
+    "longitude": "-87.3595"
+  },
+  {
+    "city": "Elk Grove",
+    "state": "CA",
+    "zip_code": "95624",
+    "latitude": "38.4160",
+    "longitude": "-121.3840"
+  },
+  {
+    "city": "Oceanside",
+    "state": "CA",
+    "zip_code": "92049",
+    "latitude": "33.2245",
+    "longitude": "-117.3062"
+  },
+  {
+    "city": "Santa Rosa",
+    "state": "CA",
+    "zip_code": "95401",
+    "latitude": "38.4500",
+    "longitude": "-122.7338"
+  },
+  {
+    "city": "High Point",
+    "state": "NC",
+    "zip_code": "27260",
+    "latitude": "35.9855",
+    "longitude": "-79.9961"
+  },
+  {
+    "city": "Ann Arbor",
+    "state": "MI",
+    "zip_code": "48103",
+    "latitude": "42.2925",
+    "longitude": "-83.7534"
+  },
+  {
+    "city": "Norwalk",
+    "state": "CA",
+    "zip_code": "90650",
+    "latitude": "33.9164",
+    "longitude": "-118.0898"
+  },
+  {
+    "city": "Burbank",
+    "state": "CA",
+    "zip_code": "91501",
+    "latitude": "34.1879",
+    "longitude": "-118.3235"
+  },
+  {
+    "city": "San Mateo",
+    "state": "CA",
+    "zip_code": "94401",
+    "latitude": "37.5621",
+    "longitude": "-122.3228"
+  },
+  {
+    "city": "Richmond",
+    "state": "CA",
+    "zip_code": "94801",
+    "latitude": "37.9321",
+    "longitude": "-122.3399"
+  },
+  {
+    "city": "Everett",
+    "state": "WA",
+    "zip_code": "98201",
+    "latitude": "47.9789",
+    "longitude": "-122.2021"
+  },
+  {
+    "city": "Pompano Beach",
+    "state": "FL",
+    "zip_code": "33060",
+    "latitude": "26.2379",
+    "longitude": "-80.1248"
+  },
+  {
+    "city": "Wichita Falls",
+    "state": "TX",
+    "zip_code": "76301",
+    "latitude": "33.9070",
+    "longitude": "-98.5295"
+  },
+  {
+    "city": "Green Bay",
+    "state": "WI",
+    "zip_code": "54301",
+    "latitude": "44.5151",
+    "longitude": "-88.0158"
+  },
+  {
+    "city": "Davenport",
+    "state": "IA",
+    "zip_code": "52801",
+    "latitude": "41.5220",
+    "longitude": "-90.5741"
+  },
+  {
+    "city": "Antioch",
+    "state": "CA",
+    "zip_code": "94509",
+    "latitude": "38.0049",
+    "longitude": "-121.8058"
+  },
+  {
+    "city": "Lowell",
+    "state": "MA",
+    "zip_code": "01850",
+    "latitude": "42.6459",
+    "longitude": "-71.3082"
+  },
+  {
+    "city": "Gresham",
+    "state": "OR",
+    "zip_code": "97030",
+    "latitude": "45.5023",
+    "longitude": "-122.4414"
+  },
+  {
+    "city": "Cambridge",
+    "state": "MA",
+    "zip_code": "02138",
+    "latitude": "42.3810",
+    "longitude": "-71.1288"
+  },
+  {
+    "city": "Ventura",
+    "state": "CA",
+    "zip_code": "93001",
+    "latitude": "34.2746",
+    "longitude": "-119.2290"
+  },
+  {
+    "city": "Pueblo",
+    "state": "CO",
+    "zip_code": "81003",
+    "latitude": "38.2731",
+    "longitude": "-104.6126"
+  },
+  {
+    "city": "Pearland",
+    "state": "TX",
+    "zip_code": "77581",
+    "latitude": "29.5543",
+    "longitude": "-95.3306"
+  },
+  {
+    "city": "West Palm Beach",
+    "state": "FL",
+    "zip_code": "33401",
+    "latitude": "26.7153",
+    "longitude": "-80.0534"
+  },
+  {
+    "city": "Centennial",
+    "state": "CO",
+    "zip_code": "80112",
+    "latitude": "39.5863",
+    "longitude": "-104.8695"
+  },
+  {
+    "city": "Daly City",
+    "state": "CA",
+    "zip_code": "94014",
+    "latitude": "37.7009",
+    "longitude": "-122.4650"
+  },
+  {
+    "city": "Lewisville",
+    "state": "TX",
+    "zip_code": "75067",
+    "latitude": "33.0462",
+    "longitude": "-96.9942"
+  },
+  {
+    "city": "Tyler",
+    "state": "TX",
+    "zip_code": "75702",
+    "latitude": "32.3465",
+    "longitude": "-95.2750"
+  },
+  {
+    "city": "San Buenaventura (Ventura)",
+    "state": "CA",
+    "zip_code": "93001",
+    "latitude": "34.2746",
+    "longitude": "-119.2290"
+  },
+  {
+    "city": "Waterbury",
+    "state": "CT",
+    "zip_code": "06702",
+    "latitude": "41.5582",
+    "longitude": "-73.0515"
+  },
+  {
+    "city": "Fargo",
+    "state": "ND",
+    "zip_code": "58102",
+    "latitude": "46.8772",
+    "longitude": "-96.7898"
+  },
+  {
+    "city": "Elgin",
+    "state": "IL",
+    "zip_code": "60120",
+    "latitude": "42.0412",
+    "longitude": "-88.2941"
+  },
+  {
+    "city": "Carlsbad",
+    "state": "CA",
+    "zip_code": "92008",
+    "latitude": "33.1631",
+    "longitude": "-117.3506"
+  },
+  {
+    "city": "Downey",
+    "state": "CA",
+    "zip_code": "90241",
+    "latitude": "33.9382",
+    "longitude": "-118.1309"
+  },
+  {
+    "city": "Jurupa Valley",
+    "state": "CA",
+    "zip_code": "92509",
+    "latitude": "34.0022",
+    "longitude": "-117.4713"
+  },
+  {
+    "city": "Costa Mesa",
+    "state": "CA",
+    "zip_code": "92626",
+    "latitude": "33.6665",
+    "longitude": "-117.9122"
+  },
+  {
+    "city": "Wilmington",
+    "state": "NC",
+    "zip_code": "28401",
+    "latitude": "34.2193",
+    "longitude": "-77.9263"
+  },
+  {
+    "city": "Arvada",
+    "state": "CO",
+    "zip_code": "80002",
+    "latitude": "39.8000",
+    "longitude": "-105.0932"
+  },
+  {
+    "city": "Hillsboro",
+    "state": "OR",
+    "zip_code": "97124",
+    "latitude": "45.5354",
+    "longitude": "-122.9241"
+  },
+  {
+    "city": "Erie",
+    "state": "PA",
+    "zip_code": "16501",
+    "latitude": "42.1292",
+    "longitude": "-80.0851"
+  },
+  {
+    "city": "Manchester",
+    "state": "NH",
+    "zip_code": "03101",
+    "latitude": "42.9896",
+    "longitude": "-71.4619"
+  },
+  {
+    "city": "Broken Arrow",
+    "state": "OK",
+    "zip_code": "74011",
+    "latitude": "36.0526",
+    "longitude": "-95.7908"
+  },
+  {
+    "city": "Miramar",
+    "state": "FL",
+    "zip_code": "33023",
+    "latitude": "26.0078",
+    "longitude": "-80.2963"
+  },
+  {
+    "city": "Sandy Springs",
+    "state": "GA",
+    "zip_code": "30328",
+    "latitude": "33.9243",
+    "longitude": "-84.3785"
+  },
+  {
+    "city": "West Covina",
+    "state": "CA",
+    "zip_code": "91790",
+    "latitude": "34.0704",
+    "longitude": "-117.9387"
+  },
+  {
+    "city": "North Charleston",
+    "state": "SC",
+    "zip_code": "29405",
+    "latitude": "32.8568",
+    "longitude": "-79.9756"
+  },
+  {
+    "city": "South Bend",
+    "state": "IN",
+    "zip_code": "46601",
+    "latitude": "41.6771",
+    "longitude": "-86.2692"
+  },
+  {
+    "city": "Renton",
+    "state": "WA",
+    "zip_code": "98055",
+    "latitude": "47.4797",
+    "longitude": "-122.2033"
+  },
+  {
+    "city": "Billings",
+    "state": "MT",
+    "zip_code": "59101",
+    "latitude": "45.7806",
+    "longitude": "-108.5007"
+  },
+  {
+    "city": "Boulder",
+    "state": "CO",
+    "zip_code": "80301",
+    "latitude": "40.0379",
+    "longitude": "-105.2814"
+  },
+  {
+    "city": "Greeley",
+    "state": "CO",
+    "zip_code": "80631",
+    "latitude": "40.4396",
+    "longitude": "-104.7624"
+  },
+  {
+    "city": "Edison",
+    "state": "NJ",
+    "zip_code": "08817",
+    "latitude": "40.5187",
+    "longitude": "-74.4121"
+  },
+  {
+    "city": "Edinburg",
+    "state": "TX",
+    "zip_code": "78539",
+    "latitude": "26.3017",
+    "longitude": "-98.1633"
+  },
+  {
+    "city": "Las Cruces",
+    "state": "NM",
+    "zip_code": "88001",
+    "latitude": "32.2826",
+    "longitude": "-106.7466"
+  },
+  {
+    "city": "Vista",
+    "state": "CA",
+    "zip_code": "92083",
+    "latitude": "33.2040",
+    "longitude": "-117.2423"
+  },
+  {
+    "city": "Davie",
+    "state": "FL",
+    "zip_code": "33314",
+    "latitude": "26.0650",
+    "longitude": "-80.2357"
+  },
+  {
+    "city": "San Angelo",
+    "state": "TX",
+    "zip_code": "76901",
+    "latitude": "31.4628",
+    "longitude": "-100.4370"
+  },
+  {
+    "city": "Rochester",
+    "state": "NY",
+    "zip_code": "14604",
+    "latitude": "43.1596",
+    "longitude": "-77.6040"
+  },
+  {
+    "city": "Inglewood",
+    "state": "CA",
+    "zip_code": "90301",
+    "latitude": "33.9617",
+    "longitude": "-118.3531"
+  },
+  {
+    "city": "Miami Gardens",
+    "state": "FL",
+    "zip_code": "33056",
+    "latitude": "25.9470",
+    "longitude": "-80.2431"
+  },
+  {
+    "city": "Temecula",
+    "state": "CA",
+    "zip_code": "92589",
+    "latitude": "33.5088",
+    "longitude": "-117.0610"
+  },
+  {
+    "city": "Clovis",
+    "state": "CA",
+    "zip_code": "93612",
+    "latitude": "36.8230",
+    "longitude": "-119.6963"
+  },
+  {
+    "city": "Tuscaloosa",
+    "state": "AL",
+    "zip_code": "35401",
+    "latitude": "33.1985",
+    "longitude": "-87.5629"
+  },
+  {
+    "city": "Livonia",
+    "state": "MI",
+    "zip_code": "48150",
+    "latitude": "42.3971",
+    "longitude": "-83.3725"
+  },
+  {
+    "city": "Sandy",
+    "state": "UT",
+    "zip_code": "84070",
+    "latitude": "40.5765",
+    "longitude": "-111.8921"
+  },
+  {
+    "city": "Vacaville",
+    "state": "CA",
+    "zip_code": "95687",
+    "latitude": "38.3566",
+    "longitude": "-121.9877"
+  },
+  {
+    "city": "Richardson",
+    "state": "TX",
+    "zip_code": "75081",
+    "latitude": "32.9687",
+    "longitude": "-96.7216"
+  },
+  {
+    "city": "Odessa",
+    "state": "TX",
+    "zip_code": "79760",
+    "latitude": "31.8957",
+    "longitude": "-102.3413"
+  },
+  {
+    "city": "Norwalk",
+    "state": "CT",
+    "zip_code": "06850",
+    "latitude": "41.1239",
+    "longitude": "-73.4173"
+  },
+  {
+    "city": "Concord",
+    "state": "CA",
+    "zip_code": "94520",
+    "latitude": "37.9792",
+    "longitude": "-122.0311"
+  },
+  {
+    "city": "Roseville",
+    "state": "CA",
+    "zip_code": "95661",
+    "latitude": "38.7405",
+    "longitude": "-121.2585"
+  },
+  {
+    "city": "Thornton",
+    "state": "CO",
+    "zip_code": "80229",
+    "latitude": "39.9180",
+    "longitude": "-104.9434"
+  }, 
+  {
+    "city": "Surprise",
+    "state": "AZ",
+    "zip_code": "85374",
+    "latitude": "33.6706",
+    "longitude": "-112.4527"
+  }
+]
