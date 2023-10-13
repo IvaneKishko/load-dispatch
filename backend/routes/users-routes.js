@@ -1,21 +1,22 @@
-const express = require('express');
+const express = require("express");
+const { check } = require("express-validator");
+
+const usersControllers = require("../controllers/users-controller");
 
 const router = express.Router();
 
-const DUMMY_USERS = [{
-    id: 'u1',
-    model: 'givi'
-}]
+router.get("/:uid", usersControllers.getUserById);
 
-router.get('/:uid', (req, res, next) => {
-    const userId = req.params.uid;
-    const user = DUMMY_USERS.find(user => user.id === userId)
+router.post(
+  "/signup",
+  [
+    check("name").not().isEmpty(),
+    check("email").normalizeEmail().isEmail(),
+    check("password").isLength({ min: 6 }),
+  ],
+  usersControllers.signup
+);
 
-    if(!load){
-        return res.status(404).json({message: "Couldn't find a load for the provided id"});
-      }
-
-    res.json({user: user});
-})
+router.post("/login", usersControllers.login);
 
 module.exports = router;
