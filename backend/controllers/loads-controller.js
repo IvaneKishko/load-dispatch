@@ -4,27 +4,8 @@ const { validationResult } = require("express-validator");
 const HttpError = require("../models/http-error.js");
 const getCoordsForAddress = require("../util/location.js");
 const Load = require("../models/load.js");
-
-let DUMMY_LOADS = [
-  {
-    id: "l1",
-    title: "mazda1",
-    description: "description 1",
-    creator: "u1",
-  },
-  {
-    id: "l2",
-    title: "mazda2",
-    description: "description 2",
-    creator: "u2",
-  },
-  {
-    id: "3",
-    title: "mazda3",
-    description: "description 3",
-    creator: "u1",
-  },
-];
+const User = require("../models/user.js");
+const { default: mongoose } = require("mongoose");
 
 const getLoadById = async (req, res, next) => {
   const loadId = req.params.lid;
@@ -98,8 +79,29 @@ const createLoad = async (req, res, next) => {
     creator,
   });
 
+  let user;
   try {
-    await createdLoad.save();
+    user = await User.findById(creator);
+  } catch (err) {
+    console.log(err);
+    const error = new HttpError("Creating load failed, please try again", 500);
+    return next(error);
+  }
+
+  if (!user) {
+    const error = new HttpError("Couldn't find user for provided id", 404);
+    return next(error);
+  }
+
+  console.log(user);
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await createdLoad.save({ session: sess });
+    user.loads.push(createdLoad);
+    await user.save({ session: sess });
+    await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError("Creating load failed, please try again", 500);
     return next(error);
@@ -111,7 +113,7 @@ const createLoad = async (req, res, next) => {
 const updateLoad = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return (new HttpError("Invalid inputs passed, please check your data.", 422));
+    return new HttpError("Invalid inputs passed, please check your data.", 422);
   }
 
   const { title, description } = req.body;
@@ -150,7 +152,7 @@ const deleteLoad = async (req, res, next) => {
 
   let load;
   try {
-    load = await Load.findById(loadId);
+    load = await Load.findById(loadId).populate("creator");
   } catch (err) {
     const error = new HttpError(
       "Couldn't delete load, something went wrong",
@@ -159,8 +161,18 @@ const deleteLoad = async (req, res, next) => {
     return next(error);
   }
 
+  if (!load) {
+    const error = new HttpError("Could not find load, for this id", 404);
+    return next(error);
+  }
+
   try {
-    await Load.findByIdAndRemove(loadId);
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await Load.findByIdAndRemove(loadId, { session: sess });
+    load.creator.loads.pull(load);
+    await load.creator.save({ session: sess });
+    await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError(
       "Couldn't delete load, something went wrong",

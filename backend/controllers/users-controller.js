@@ -1,18 +1,7 @@
-const { v4: uuid } = require("uuid");
 const { validationResult } = require("express-validator");
 
 const HttpError = require("../models/http-error");
 const User = require("../models/user");
-
-const DUMMY_USERS = [
-  {
-    id: "u1",
-    name: "Max Sharwa",
-    email: "test@gmail.com",
-    name: "Max Sharwa",
-    password: "password",
-  },
-];
 
 const getUserById = (req, res, next) => {
   const userId = req.params.uid;
@@ -28,13 +17,15 @@ const getUserById = (req, res, next) => {
 const signup = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return next(new HttpError("Invalid inputs passed, please check your data.", 422));
+    return next(
+      new HttpError("Invalid inputs passed, please check your data.", 422)
+    );
   }
   console.log("ss");
 
-  const { companyName, email, password, loads, role } = req.body;
+  const { companyName, email, password, role } = req.body;
 
-  let existingUser
+  let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
     console.log(existingUser);
@@ -55,7 +46,7 @@ const signup = async (req, res, next) => {
     role,
     image:
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
-    loads,
+    loads: [],
   });
 
   try {
@@ -71,16 +62,18 @@ const signup = async (req, res, next) => {
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  let existingUser
+  let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
-    console.log(existingUser);
   } catch (err) {
     const error = new HttpError("Logging in failed, please try again", 500);
     return next(error);
   }
 
-  
+  if (!existingUser || existingUser.password !== password) {
+    const error = new HttpError("Invalid credentials, couldn't log in", 401);
+    return next(error);
+  }
 
   res.json({ message: "Logged in" });
 };
