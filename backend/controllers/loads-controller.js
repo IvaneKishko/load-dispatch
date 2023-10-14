@@ -26,31 +26,49 @@ let DUMMY_LOADS = [
   },
 ];
 
-const getLoadById = (req, res, next) => {
+const getLoadById = async (req, res, next) => {
   const loadId = req.params.lid;
-  const load = DUMMY_LOADS.find((load) => load.id === loadId);
+  console.log(loadId);
+
+  let load;
+  try {
+    load = await Load.findById(loadId);
+  } catch (err) {
+    const error = new HttpError(
+      "Could not find a load, something went wrong",
+      500
+    );
+    return next(error);
+  }
 
   if (!load) {
-    throw new HttpError("Could not find user or provided id.", 404);
+    const error = new HttpError("Could not find load or provided id.", 404);
+    return next(error);
   }
 
-  res.json({ load });
+  res.json({ load: load.toObject({ getters: true }) });
 };
 
-const getLoadsByUserId = (req, res, next) => {
+const getLoadsByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
-  const loads = DUMMY_LOADS.filter((load) => {
-    return load.creator === userId;
-  });
-
-  if (!loads || loads.length === 0) {
-    return next(
-      new HttpError("Could not find a loads for the provided user id.", 404)
+  let loads;
+  try {
+    loads = await Load.find({ creator: userId });
+  } catch (err) {
+    const error = new HttpError(
+      "Could not find a load for this user, something went wrong",
+      500
     );
+    return next(error);
   }
 
-  res.json({ loads });
+  if (!loads) {
+    const error = new HttpError("Could not find load or provided id.", 404);
+    return next(error);
+  }
+
+  res.json({ loads: loads.map((load) => load.toObject({ getters: true })) });
 };
 
 const createLoad = async (req, res, next) => {
@@ -84,38 +102,73 @@ const createLoad = async (req, res, next) => {
     await createdLoad.save();
   } catch (err) {
     const error = new HttpError("Creating load failed, please try again", 500);
-    return next(error)
+    return next(error);
   }
 
   res.status(201).json({ load: createdLoad });
 };
 
-const updateLoad = (req, res, next) => {
+const updateLoad = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    throw new HttpError("Invalid inputs passed, please check your data.", 422);
+    return (new HttpError("Invalid inputs passed, please check your data.", 422));
   }
 
   const { title, description } = req.body;
   const loadId = req.params.lid;
 
-  const updatedLoad = { ...DUMMY_LOADS.find((load) => load.id === loadId) };
-  const loadIndex = DUMMY_LOADS.findIndex((load) => load.id === loadId);
-  updatedLoad.title = title;
-  updatedLoad.description = description;
+  let load;
+  try {
+    load = await Load.findById(loadId);
+  } catch (err) {
+    const error = new HttpError(
+      "Couldn't update load, something went wrong",
+      500
+    );
 
-  DUMMY_LOADS[loadIndex] = updatedLoad;
-
-  res.status(200).json({ place: updatedLoad });
-};
-
-const deleteLoad = (req, res, next) => {
-  const loadId = req.params.lid;
-  if (!DUMMY_LOADS.find((load) => load.id === loadId)) {
-    throw new HttpError("Could not find a load for provided id", 404);
+    return next(error);
   }
 
-  DUMMY_LOADS = DUMMY_LOADS.filter((load) => load.id !== loadId);
+  load.title = title;
+  load.description = description;
+
+  try {
+    await load.save();
+  } catch (err) {
+    const error = new HttpError(
+      "Could not update place something went wrong",
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ load: load.toObject({ getters: true }) });
+};
+
+const deleteLoad = async (req, res, next) => {
+  const loadId = req.params.lid;
+
+  let load;
+  try {
+    load = await Load.findById(loadId);
+  } catch (err) {
+    const error = new HttpError(
+      "Couldn't delete load, something went wrong",
+      500
+    );
+    return next(error);
+  }
+
+  try {
+    await Load.findByIdAndRemove(loadId);
+  } catch (err) {
+    const error = new HttpError(
+      "Couldn't delete load, something went wrong",
+      500
+    );
+    return next(error);
+  }
+
   res.status(200).json({ message: "Deleted load" });
 };
 
