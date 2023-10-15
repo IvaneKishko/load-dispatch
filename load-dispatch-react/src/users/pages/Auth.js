@@ -10,6 +10,8 @@ import "./Auth.css";
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
 
   const [formState, setFormState] = useState({
     email: {
@@ -23,18 +25,18 @@ const Auth = () => {
     isValid: true,
   });
 
-  function switchModeHandler () {
-    if(!isLoginMode){
+  function switchModeHandler() {
+    if (!isLoginMode) {
       setFormState({
         ...formState,
-        company: undefined,
+        companyName: undefined,
         passwordConfirm: undefined,
         role: undefined,
-      })
+      });
     } else {
-      setFormState(prevState => ({
+      setFormState((prevState) => ({
         ...prevState,
-        company: {
+        companyName: {
           value: "",
           isValid: true,
         },
@@ -46,38 +48,71 @@ const Auth = () => {
           value: "",
           isValid: true,
         },
+        phoneNumber: {
+          // New field for phone number
+          value: "",
+          isValid: true,
+        },
       }));
     }
 
-    setIsLoginMode(prevState => !prevState)
+    setIsLoginMode((prevState) => !prevState);
   }
 
   function handleChange(event) {
     const { name, value } = event.target;
     setFormState((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: {
+        ...prevState[name],
+        value: value,
+      },
     }));
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    if (isLoginMode) {
+    } else {
+      try {
+        setIsLoading(true);
+        const response = await fetch("http://localhost:5000/api/users/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Correct way to set headers
+          },
+          body: JSON.stringify({
+            companyName: formState.companyName.value,
+            email: formState.email.value,
+            password: formState.password.value,
+            role: formState.role.value,
+            phoneNumber: formState.phoneNumber.value,
+          }),
+        });
+
+        const responseData = await response.json();
+        console.log(responseData);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     auth.login();
-  }
+  };
   return (
     <Card className="authentication">
       <h2>Login Required</h2>
       <form onSubmit={handleSubmit}>
         {!isLoginMode && (
           <Input
-            id="company"
+            id="companyName"
             element="input"
             type="text"
             label="Company Name"
-            name="company"
+            name="companyName"
             onChange={handleChange}
-            value={formState.company.value}
+            value={formState.companyName.value}
           />
         )}
 
@@ -112,6 +147,19 @@ const Auth = () => {
           />
         )}
         {!isLoginMode && (
+          <Input
+            id="phoneNumber"
+            element="input"
+            type="tel"
+            label="Phone Number"
+            name="phoneNumber"
+            onChange={handleChange}
+            value={formState.phoneNumber.value}
+            required
+          />
+        )}
+
+        {!isLoginMode && (
           <fieldset className="radio-buttons">
             <legend>Role</legend>
             <Input
@@ -121,7 +169,7 @@ const Auth = () => {
               type="radio"
               name="role"
               value="client"
-              checked={formState.role === "client"}
+              checked={formState.role.value === "client"}
               onChange={handleChange}
               required
             />
@@ -134,16 +182,18 @@ const Auth = () => {
               label="Transporter"
               name="role"
               value="transporter"
-              checked={formState.role === "transporter"}
+              checked={formState.role.value === "transporter"}
               onChange={handleChange}
             />
             {/* <label htmlFor="transporter">Transporter</label> */}
           </fieldset>
         )}
 
-        <Button type="submit">{isLoginMode ? 'LOGIN' : 'SIGNUP'}</Button>
+        <Button type="submit">{isLoginMode ? "LOGIN" : "SIGNUP"}</Button>
       </form>
-      <Button type="submit" onClick={switchModeHandler}>SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}</Button>
+      <Button type="submit" onClick={switchModeHandler}>
+        SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
+      </Button>
     </Card>
   );
 };

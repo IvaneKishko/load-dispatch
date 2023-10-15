@@ -18,7 +18,7 @@ import User from "./users/pages/User";
 import { AuthContext } from "./shared/context/auth.context";
 // context da ak una shevcvalo loginebi
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
