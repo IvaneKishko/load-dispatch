@@ -3,6 +3,8 @@ import React, { useState, useContext } from "react";
 import Card from "../../shared/components/UIElements/Card";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { AuthContext } from "../../shared/context/auth.context";
 
 import "./Auth.css";
@@ -49,7 +51,6 @@ const Auth = () => {
           isValid: true,
         },
         phoneNumber: {
-          // New field for phone number
           value: "",
           isValid: true,
         },
@@ -73,10 +74,33 @@ const Auth = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setIsLoading(true);
+
     if (isLoginMode) {
+      try {
+        const response = await fetch("http://localhost:5000/api/users/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Correct way to set headers
+          },
+          body: JSON.stringify({
+            email: formState.email.value,
+            password: formState.password.value
+          }),
+        });
+
+        const responseData = await response.json();
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+        setIsLoading(false);
+        auth.login();
+      } catch (err) {
+        setIsLoading(false);
+        setError(err.message || "Something went wrong, please try again");
+      }
     } else {
       try {
-        setIsLoading(true);
         const response = await fetch("http://localhost:5000/api/users/signup", {
           method: "POST",
           headers: {
@@ -92,113 +116,121 @@ const Auth = () => {
         });
 
         const responseData = await response.json();
-        console.log(responseData);
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
         auth.login();
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (err) {
-        console.log(err);
-        setIsLoading(false)
-        setError(err.message || "Something went wrong, please try again")
+        setIsLoading(false);
+        setError(err.message || "Something went wrong, please try again");
       }
     }
-
-    setIsLoading(false)
   };
+
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
-    <Card className="authentication">
-      <h2>Login Required</h2>
-      <form onSubmit={handleSubmit}>
-        {!isLoginMode && (
+    <>
+      <ErrorModal error={error} onClear={errorHandler} />
+      <Card className="authentication">
+        {isLoading && <LoadingSpinner asOverlay />}
+        <h2>Login Required</h2>
+        <form onSubmit={handleSubmit}>
+          {!isLoginMode && (
+            <Input
+              id="companyName"
+              element="input"
+              type="text"
+              label="Company Name"
+              name="companyName"
+              onChange={handleChange}
+              value={formState.companyName.value}
+            />
+          )}
+
           <Input
-            id="companyName"
-            element="input"
-            type="text"
-            label="Company Name"
-            name="companyName"
+            id="email"
+            element="email"
+            type="email"
+            label="Email address"
+            name="email"
             onChange={handleChange}
-            value={formState.companyName.value}
+            value={formState.email.value}
           />
-        )}
 
-        <Input
-          id="email"
-          element="email"
-          type="email"
-          label="Email address"
-          name="email"
-          onChange={handleChange}
-          value={formState.email.value}
-        />
-
-        <Input
-          id="password"
-          element="password"
-          type="password"
-          label="Password"
-          name="password"
-          onChange={handleChange}
-          value={formState.password.value}
-        />
-        {!isLoginMode && (
           <Input
-            id="passwordConfirm"
+            id="password"
             element="password"
             type="password"
-            label="Confirm password"
-            name="passwordConfirm"
+            label="Password"
+            name="password"
             onChange={handleChange}
-            value={formState.passwordConfirm.value}
+            value={formState.password.value}
           />
-        )}
-        {!isLoginMode && (
-          <Input
-            id="phoneNumber"
-            element="input"
-            type="tel"
-            label="Phone Number"
-            name="phoneNumber"
-            onChange={handleChange}
-            value={formState.phoneNumber.value}
-            required
-          />
-        )}
-
-        {!isLoginMode && (
-          <fieldset className="radio-buttons">
-            <legend>Role</legend>
+          {!isLoginMode && (
             <Input
-              id="client"
-              element="radio"
-              label="Client"
-              type="radio"
-              name="role"
-              value="client"
-              checked={formState.role.value === "client"}
+              id="passwordConfirm"
+              element="password"
+              type="password"
+              label="Confirm password"
+              name="passwordConfirm"
               onChange={handleChange}
+              value={formState.passwordConfirm.value}
+            />
+          )}
+          {!isLoginMode && (
+            <Input
+              id="phoneNumber"
+              element="input"
+              type="tel"
+              label="Phone Number"
+              name="phoneNumber"
+              onChange={handleChange}
+              value={formState.phoneNumber.value}
               required
             />
-            {/* <label htmlFor="Client">Client</label> */}
+          )}
 
-            <Input
-              element="radio"
-              type="radio"
-              id="transporter"
-              label="Transporter"
-              name="role"
-              value="transporter"
-              checked={formState.role.value === "transporter"}
-              onChange={handleChange}
-            />
-            {/* <label htmlFor="transporter">Transporter</label> */}
-          </fieldset>
-        )}
+          {!isLoginMode && (
+            <fieldset className="radio-buttons">
+              <legend>Role</legend>
+              <Input
+                id="client"
+                element="radio"
+                label="Client"
+                type="radio"
+                name="role"
+                value="client"
+                checked={formState.role.value === "client"}
+                onChange={handleChange}
+                required
+              />
+              {/* <label htmlFor="Client">Client</label> */}
 
-        <Button type="submit">{isLoginMode ? "LOGIN" : "SIGNUP"}</Button>
-      </form>
-      <Button type="submit" onClick={switchModeHandler}>
-        SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
-      </Button>
-    </Card>
+              <Input
+                element="radio"
+                type="radio"
+                id="transporter"
+                label="Transporter"
+                name="role"
+                value="transporter"
+                checked={formState.role.value === "transporter"}
+                onChange={handleChange}
+              />
+              {/* <label htmlFor="transporter">Transporter</label> */}
+            </fieldset>
+          )}
+
+          <Button type="submit">{isLoginMode ? "LOGIN" : "SIGNUP"}</Button>
+        </form>
+        <Button type="submit" onClick={switchModeHandler}>
+          SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
+        </Button>
+      </Card>
+    </>
   );
 };
 
