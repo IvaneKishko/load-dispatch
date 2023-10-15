@@ -93,12 +93,16 @@ const Auth = () => {
 
         const responseData = await response.json();
         console.log(responseData);
+        auth.login();
+        setIsLoading(false)
       } catch (err) {
         console.log(err);
+        setIsLoading(false)
+        setError(err.message || "Something went wrong, please try again")
       }
     }
 
-    auth.login();
+    setIsLoading(false)
   };
   return (
     <Card className="authentication">
