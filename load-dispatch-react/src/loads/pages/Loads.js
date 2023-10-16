@@ -4,41 +4,31 @@ import Filter from "../components/Filter";
 import LoadsList from "../components/LoadsList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./Loads.css";
 
 const Loads = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
-  const [loadsData, setLoadsData] = useState();
-
-  useEffect(() => {
-    const sendRequest = async () => {
-      setIsLoading(false);
-      try {
-        const response = await fetch("http://localhost:5000/api/loads/");
-
-        const responseData = await response.json();
-
-        if (!response.ok) {
-          throw new Error(responseData.message);
-        }
-
-        setLoadsData(responseData.loads);
-      } catch (err) {
-        setError(err.message);
-      }
-      setIsLoading(false);
-    };
-    sendRequest();
-  }, []);
-
-  const errorHandler = () => {
-    setError(null);
-  };
-
   const [selectedPickupLocation, setSelectedPickupLocation] = useState(null);
   const [selectedDropOffLocation, setSelectedDropOffLocation] = useState(null);
   const [selectedMinPrice, setSelectedMinPrice] = useState(null);
+
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadsData, setLoadsData] = useState();
+
+  useEffect(() => {
+    const fetchLoads = async () => {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:5000/api/loads/"
+        );
+
+        setLoadsData(responseData.loads);
+      } catch (err) {
+        console.log(err)
+      }
+    };
+    fetchLoads();
+  }, [sendRequest]);
 
   const resetFilters = (event) => {
     event.preventDefault();
@@ -74,7 +64,7 @@ const Loads = (props) => {
 
   return (
     <main className="loads-main">
-      <ErrorModal error={error} onClear={errorHandler} />
+      <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">
           <LoadingSpinner />
