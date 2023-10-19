@@ -21,7 +21,7 @@ const LoadCard = (props) => {
       <div className="load-item__pick-drop">
         <a>
           <span className="load-item__label">Pickup Location</span>
-          <h4>{props.pickupPlace}</h4>
+          <h4>{props.pickupLocation}</h4>
         </a>
         <a>
           <span className="load-item__label">Destination</span>

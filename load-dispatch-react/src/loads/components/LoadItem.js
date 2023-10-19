@@ -9,7 +9,7 @@ const LoadItem = (props) => {
       <li className="load-item">
         <div className="load-item__price-model">
           <h4>${props.price}</h4>
-          <h4>{props.model}</h4>
+          <h4>{props.title}</h4>
           <span>{props.payment} / Certified</span>
         </div>
         <div className="load-item__company-date">

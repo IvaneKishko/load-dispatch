@@ -13,18 +13,17 @@ const Loads = (props) => {
   const [selectedMinPrice, setSelectedMinPrice] = useState(null);
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const [loadsData, setLoadsData] = useState();
+  const [loadsData, setLoadsData] = useState([]);
 
   useEffect(() => {
     const fetchLoads = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/loads/"
+          "http://localhost:5000/api/loads"
         );
-
         setLoadsData(responseData.loads);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     };
     fetchLoads();

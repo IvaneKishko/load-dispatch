@@ -22,7 +22,7 @@ const LoadsList = (props) => {
           key={load.id}
           id={load.id}
           price={load.price}
-          model={load.model}
+          title={load.title}
           payment={load.payment}
           companyName={load.companyName}
           pickupDate={load.pickupDate}
