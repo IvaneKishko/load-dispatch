@@ -7,7 +7,7 @@ import Map from "../../shared/components/UIElements/Map";
 import "./Load.css";
 import LoadCard from "../../shared/components/UIElements/LoadCard";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { AuthContext } from '../../shared/context/auth.context';
+import { AuthContext } from "../../shared/context/auth.context";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
@@ -22,7 +22,13 @@ const Load = () => {
     const fetchLoad = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/loads/${loadId}`
+          `http://localhost:5000/api/loads/${loadId}`,
+          "GET",
+          null,
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          }
         );
         setLoad(responseData.load);
       } catch (err) {}
@@ -45,7 +51,12 @@ const Load = () => {
   const confirmDeleteHandler = async () => {
     setShowConfirmModal(false);
     try {
-      await sendRequest(`http://localhost:5000/api/loads/${loadId}`, "DELETE");
+      await sendRequest(
+        `http://localhost:5000/api/loads/${loadId}`,
+        "DELETE",
+        null,
+        { Authorization: "Bearer " + auth.token }
+      );
     } catch (err) {}
     navigate(`/loads`);
   };
@@ -93,7 +104,7 @@ const Load = () => {
           </Modal>
           <LoadCard
             model={load.model}
-            image={load.image}
+            image={`http://localhost:5000/${load.image}`}
             payment={load.payment}
             price={load.price}
             companyName={load.companyName}
@@ -106,8 +117,14 @@ const Load = () => {
             <Button inverse onClick={openMapHandler}>
               VIEW ON MAP
             </Button>
-            {auth.userId === load.creator && <Button to={`/loads/${loadId}/edit/`}>EDIT</Button>}
-            {auth.userId === load.creator && <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>}
+            {auth.userId === load.creator && (
+              <Button to={`/loads/${loadId}/edit/`}>EDIT</Button>
+            )}
+            {auth.userId === load.creator && (
+              <Button danger onClick={showDeleteWarningHandler}>
+                DELETE
+              </Button>
+            )}
           </div>
         </>
       )}

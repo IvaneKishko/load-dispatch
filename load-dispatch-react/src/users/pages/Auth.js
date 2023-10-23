@@ -5,6 +5,7 @@ import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth.context";
 
@@ -34,6 +35,7 @@ const Auth = () => {
         companyName: undefined,
         passwordConfirm: undefined,
         role: undefined,
+        image: undefined,
       });
     } else {
       setFormState((prevState) => ({
@@ -54,6 +56,10 @@ const Auth = () => {
           value: "",
           isValid: true,
         },
+        image: {
+          value: null,
+          isValid: true,
+        },
       }));
     }
 
@@ -71,8 +77,19 @@ const Auth = () => {
     }));
   }
 
+  const imageInputHandler = (name, value, isValid) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: {
+        ...prevState[name],
+        value: value,
+      },
+    }));
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
 
     if (isLoginMode) {
       try {
@@ -87,28 +104,30 @@ const Auth = () => {
             "Content-Type": "application/json", // Correct way to set headers
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.userId, responseData.token, responseData.companyName);
       } catch (err) {
         // we are handling this in http hook
       }
     } else {
       try {
+        const formData = new FormData();
+        formData.append("companyName", formState.companyName.value);
+        formData.append("email", formState.email.value);
+        formData.append("password", formState.password.value);
+        formData.append("role", formState.role.value);
+        formData.append("phoneNumber", formState.phoneNumber.value);
+        formData.append("image", formState.image.value);
+        for (var pair of formData.entries()) {
+          console.log(pair[0] + ", " + pair[1]);
+        }
         const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
-          JSON.stringify({
-            companyName: formState.companyName.value,
-            email: formState.email.value,
-            password: formState.password.value,
-            role: formState.role.value,
-            phoneNumber: formState.phoneNumber.value,
-          }),
-          {
-            "Content-Type": "application/json", 
-          }
+          // fetch api that we use under the hood automatically sets right headers for formdata
+          formData
         );
 
-        auth.login(responseData.user.id);
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {
         // we are handling this in http hook
       }
@@ -131,6 +150,16 @@ const Auth = () => {
               name="companyName"
               onChange={handleChange}
               value={formState.companyName.value}
+            />
+          )}
+
+          {!isLoginMode && (
+            <ImageUpload
+              id="image"
+              center
+              onInput={imageInputHandler}
+              errorText="Please provide an image"
+              required
             />
           )}
 

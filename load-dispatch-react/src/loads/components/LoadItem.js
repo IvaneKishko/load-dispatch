@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../shared/context/auth.context";
 
 import "./LoadItem.css";
 
@@ -9,7 +10,7 @@ const LoadItem = (props) => {
       <li className="load-item">
         <div className="load-item__price-model">
           <h4>${props.price}</h4>
-          <h4>{props.title}</h4>
+          <h4>{props.model}</h4>
           <span>{props.payment} / Certified</span>
         </div>
         <div className="load-item__company-date">
@@ -32,7 +33,7 @@ const LoadItem = (props) => {
           </a>
         </div>
         <div>
-          <img src={props.image} alt="car" className="load-item__pick-drop__img"/>
+          <img src={`http://localhost:5000/${props.image}`} alt="car" className="load-item__pick-drop__img"/>
         </div>
       </li>
     </Link>

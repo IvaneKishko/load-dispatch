@@ -22,9 +22,9 @@ const LoadsList = (props) => {
           key={load.id}
           id={load.id}
           price={load.price}
-          title={load.title}
+          model={load.model}
           payment={load.payment}
-          companyName={load.companyName}
+          companyName={load.creator}
           pickupDate={load.pickupDate}
           dropOffDate={load.dropOffDate}
           phone={load.phone}

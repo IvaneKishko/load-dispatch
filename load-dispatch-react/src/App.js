@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,24 +16,16 @@ import UserLoads from "./loads/pages/UserLoads";
 import Auth from "./users/pages/Auth";
 import User from "./users/pages/User";
 import { AuthContext } from "./shared/context/auth.context";
+import { useAuth } from "./shared/hooks/auth-hook";
 // context da ak una shevcvalo loginebi
+
+
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(false);
-
-  const login = useCallback((uid) => {
-    setIsLoggedIn(true);
-    setUserId(uid);
-  }, []);
-
-  const logout = useCallback(() => {
-    setIsLoggedIn(false);
-    setUserId(null);
-  }, []);
+  const {token, login, logout, userId, companyName} = useAuth();
 
   let routes;
 
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <React.Fragment>
         <Route exact path="/" element={<Landing />} />
@@ -59,7 +51,9 @@ const App = () => {
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn: isLoggedIn,
+        isLoggedIn: !!token,
+        token: token,
+        companyName: companyName,
         userId: userId,
         login: login,
         logout: logout,

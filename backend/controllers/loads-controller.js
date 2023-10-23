@@ -30,6 +30,27 @@ const getLoadById = async (req, res, next) => {
   res.json({ load: load.toObject({ getters: true }) });
 };
 
+const getLoads = async (req, res, next) => {
+
+  let loads;
+  try {
+    loads = await Load.find();
+  } catch (err) {
+    const error = new HttpError(
+      "Could not find a load, something went wrong",
+      500
+    );
+    return next(error);
+  }
+
+  if (!loads) {
+    const error = new HttpError("Could not find load or provided id.", 404);
+    return next(error);
+  }
+
+  res.json({ loads: loads.map(load => load.toObject({ getters: true }))});
+};
+
 const getLoadsByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
@@ -60,7 +81,7 @@ const createLoad = async (req, res, next) => {
     );
   }
 
-  const { title, description, address, creator } = req.body;
+  const { model, pickupDate, pickupLocation, dropOffLocation, price, payment, address, creator } = req.body;
 
   let coordinates;
   try {
@@ -70,8 +91,12 @@ const createLoad = async (req, res, next) => {
   }
 
   const createdLoad = new Load({
-    title,
-    description,
+    model,
+    pickupDate,
+    pickupLocation,
+    dropOffLocation,
+    price,
+    payment,
     address,
     location: coordinates,
     image:
@@ -116,7 +141,7 @@ const updateLoad = async (req, res, next) => {
     return new HttpError("Invalid inputs passed, please check your data.", 422);
   }
 
-  const { title, description } = req.body;
+  const { model, price } = req.body;
   const loadId = req.params.lid;
 
   let load;
@@ -131,8 +156,8 @@ const updateLoad = async (req, res, next) => {
     return next(error);
   }
 
-  load.title = title;
-  load.description = description;
+  load.model = model;
+  load.price = price;
 
   try {
     await load.save();
@@ -184,7 +209,9 @@ const deleteLoad = async (req, res, next) => {
   res.status(200).json({ message: "Deleted load" });
 };
 
+
 exports.getLoadById = getLoadById;
+exports.getLoads = getLoads;
 exports.getLoadsByUserId = getLoadsByUserId;
 exports.createLoad = createLoad;
 exports.updateLoad = updateLoad;

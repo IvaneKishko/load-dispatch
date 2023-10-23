@@ -8,7 +8,18 @@ const userRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
 
 const app = express();
+
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-Width, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  next();
+});
 
 app.use(landingRoutes);
 app.use("/api/loads", loadRoutes);
@@ -30,8 +41,10 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect('mongodb+srv://load-dispatch-user:load1234@cluster0.q13yfea.mongodb.net/loads?retryWrites=true&w=majority')
+  .connect(
+    "mongodb+srv://load-dispatch-user:load1234@cluster0.q13yfea.mongodb.net/mern?retryWrites=true&w=majority"
+  )
   .then(() => app.listen(5000))
-  .catch(err => {
-    console.log(error)
+  .catch((err) => {
+    console.log(error);
   });

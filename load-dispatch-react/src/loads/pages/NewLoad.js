@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 import Input from "../../shared/components/FormElements/Input";
@@ -8,11 +9,13 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth.context";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 import "./NewLoad.css";
 
 const NewLoad = () => {
   // const today = new Date().toISOString().split("T")[0];
   const auth = useContext(AuthContext);
+  let navigate = useNavigate();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formState, setFormState] = useState({
@@ -44,28 +47,30 @@ const NewLoad = () => {
       value: "",
       isValid: false,
     },
-    isValid: false,
+    image: {
+      value: null,
+      isValid: false,
+    },
+    isValid: true,
   });
 
   const placeSubmitHandler = async (event) => {
     event.preventDefault();
+    console.log("Sending token:", auth.token);
     try {
-      await sendRequest(
-        "http://localhost:5000/api/loads",
-        "POST",
-        JSON.stringify({
-          model: formState.model,
-          pickupDate: formState.pickupDate,
-          pickupLocation: formState.pickupLocation,
-          dropOffLocation: formState.dropOffLocation,
-          price: formState.price,
-          payment: formState.payment,
-          // address: "Georgia, Tbilisi Tskhvedadze 53",
-          address: formState.address,
-          creator: auth.userId,
-        }),
-        { "Content-Type": "application/json" }
-      );
+      const formData = new FormData();
+      formData.append("model", formState.model);
+      formData.append("pickupDate", formState.pickupDate);
+      formData.append("pickupLocation", formState.pickupLocation);
+      formData.append("dropOffLocation", formState.dropOffLocation);
+      formData.append("price", formState.price);
+      formData.append("payment", formState.payment);
+      formData.append("address", formState.address);
+      formData.append("image", formState.image.value);
+      await sendRequest("http://localhost:5000/api/loads", "POST", formData, {
+        Authorization: "Bearer " + auth.token,
+      });
+      navigate('/loads')
     } catch (err) {}
   };
 
@@ -79,6 +84,16 @@ const NewLoad = () => {
     }));
     console.log(name, value);
   }
+
+  const imageInputHandler = (name, value, isValid) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: {
+        ...prevState[name],
+        value: value,
+      },
+    }));
+  };
 
   return (
     <>
@@ -195,6 +210,13 @@ const NewLoad = () => {
             required
           />
         </div>
+        <ImageUpload
+          id="image"
+          center
+          onInput={imageInputHandler}
+          required
+          errorText="Please provide an image"
+        />
         <Button type="submit">ADD LOAD</Button>
       </form>
     </>

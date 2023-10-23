@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate  } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import LOADSDATA from "../../loadsData";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import { AuthContext } from "../../shared/context/auth.context";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import "./UpdateLoad.css";
 
 const UpdateLoad = () => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [load, setLoad] = useState();
   const loadId = useParams().loadId;
@@ -31,9 +33,16 @@ const UpdateLoad = () => {
     const fetchLoad = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/loads/${loadId}`
+          `http://localhost:5000/api/loads/${loadId}`,
+          "GET",
+          null,
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          }
         );
         setLoad(responseData.load);
+        console.log(responseData.load.model, responseData.load.price);
         setFormState({
           model: {
             value: responseData.load.model,
@@ -45,7 +54,9 @@ const UpdateLoad = () => {
           },
           isValid: true,
         });
-      } catch (err) {}
+      } catch (err) {
+        console.error(err);
+      }
     };
     fetchLoad();
   }, [sendRequest, loadId, setFormState]);
@@ -65,8 +76,9 @@ const UpdateLoad = () => {
 
   const loadUpdateSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(load.model)
-    try{
+    console.log(formState.model.value, formState.price.value);
+    console.log(auth.token);
+    try {
       await sendRequest(
         `http://localhost:5000/api/loads/${loadId}`,
         "PATCH",
@@ -76,11 +88,13 @@ const UpdateLoad = () => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
-      navigate(`/loads/${loadId}`)
-    }catch(err){}
-
+      navigate(`/loads/${loadId}`);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   if (!load && !error) {
@@ -98,36 +112,34 @@ const UpdateLoad = () => {
       </div>
     );
   }
-  console.log(formState.model, formState.price)
+  console.log(formState.model, formState.price);
 
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
-      {
-       !isLoading && load && (
+      {!isLoading && load && (
         <form className="load-form" onSubmit={loadUpdateSubmitHandler}>
-        <Input
-          id="model"
-          element="input"
-          type="text"
-          label="Model"
-          name="model"
-          onChange={handleChange}
-          value={formState.model.value}
-        />{" "}
-        <Input
-          id="price"
-          element="input"
-          type="number"
-          label="Price USD$"
-          name="price"
-          onChange={handleChange}
-          value={formState.price.value}
-        />
-        <Button type="submit">UPDATE PLACE</Button>
-      </form>
-       )
-      }
+          <Input
+            id="model"
+            element="input"
+            type="text"
+            label="Model"
+            name="model"
+            onChange={handleChange}
+            value={formState.model.value}
+          />{" "}
+          <Input
+            id="price"
+            element="input"
+            type="number"
+            label="Price USD$"
+            name="price"
+            onChange={handleChange}
+            value={formState.price.value}
+          />
+          <Button type="submit">UPDATE PLACE</Button>
+        </form>
+      )}
     </>
   );
 };

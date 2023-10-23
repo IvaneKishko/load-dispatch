@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LOADSDATA from "../../loadsData";
 import Filter from "../components/Filter";
 import LoadsList from "../components/LoadsList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import { AuthContext } from "../../shared/context/auth.context";
 import "./Loads.css";
 
 const Loads = (props) => {
+  const auth = useContext(AuthContext);
   const [selectedPickupLocation, setSelectedPickupLocation] = useState(null);
   const [selectedDropOffLocation, setSelectedDropOffLocation] = useState(null);
   const [selectedMinPrice, setSelectedMinPrice] = useState(null);
@@ -19,7 +21,13 @@ const Loads = (props) => {
     const fetchLoads = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/loads"
+          "http://localhost:5000/api/loads",
+          'GET',
+          null,
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          }
         );
         setLoadsData(responseData.loads);
       } catch (err) {
@@ -60,6 +68,8 @@ const Loads = (props) => {
   const handleMinPriceChange = (minPrice) => {
     setSelectedMinPrice(minPrice);
   };
+
+  console.log(applyFilters())
 
   return (
     <main className="loads-main">

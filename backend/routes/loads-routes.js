@@ -5,17 +5,31 @@ const loadsControllers = require("../controllers/loads-controller");
 
 const router = express.Router();
 
+router.get("/", loadsControllers.getLoads);
+
 router.get("/:lid", loadsControllers.getLoadById);
 
 router.get("/user/:uid", loadsControllers.getLoadsByUserId);
 
 router.post(
   "/",
-  [check("title").not().isEmpty(), check("description").isLength({ min: 5 }), check('address').not().isEmpty()],
+  [
+    check("model").not().isEmpty(),
+    check("pickupDate").not().isEmpty(),
+    check("pickupLocation").not().isEmpty(),
+    check("dropOffLocation").not().isEmpty(),
+    check("price").not().isEmpty(),
+    check("payment").not().isEmpty(),
+    check("address").not().isEmpty(),
+  ],
   loadsControllers.createLoad
 );
 
-router.patch("/:lid", [check("title").not().isEmpty(), check("description").isLength({ min: 5 })], loadsControllers.updateLoad);
+router.patch(
+  "/:lid",
+  [check("model").not().isEmpty(), check("price").isLength({ min: 5 })],
+  loadsControllers.updateLoad
+);
 
 router.delete("/:lid", loadsControllers.deleteLoad);
 
