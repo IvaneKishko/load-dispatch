@@ -6,11 +6,16 @@ export const useAuth = () => {
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
   const [userId, setUserId] = useState(false);
   const [companyName, setCompanyName] = useState(false);
+  const [role, setRole] = useState(false);
 
-  const login = useCallback((uid, token, companyName, expirationDate) => {
+
+  const login = useCallback((uid, token, companyName, role, expirationDate) => {
     setToken(token);
     setUserId(uid);
-    setCompanyName(companyName)
+    setCompanyName(companyName);
+    setRole(role);
+    console.log(companyName);
+
     // because of scoping this is different tokenExpriationDate
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
@@ -20,6 +25,8 @@ export const useAuth = () => {
       JSON.stringify({
         userId: uid,
         token: token,
+        companyName: companyName,
+        role: role,
         expiration: tokenExpirationDate.toISOString(),
       })
     );
@@ -29,14 +36,17 @@ export const useAuth = () => {
     setToken(null);
     setTokenExpirationDate(null);
     setUserId(null);
+    setCompanyName(null);
+    setRole(null);
     localStorage.removeItem("userData");
   }, []);
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
-      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
       logoutTimer = setTimeout(logout, remainingTime);
-    } else{
+    } else {
       clearTimeout(logoutTimer);
     }
   }, [token, logout, tokenExpirationDate]);
@@ -51,10 +61,12 @@ export const useAuth = () => {
       login(
         storedData.userId,
         storedData.token,
+        storedData.companyName,
+        storedData.role,
         new Date(storedData.expiration)
       );
     }
   }, [login]);
 
-  return { token, login, logout, userId };
+  return { token, login, logout, userId, companyName, role };
 };

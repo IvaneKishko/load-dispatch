@@ -17,3 +17,7 @@
 .radio-buttons{
   border: 3px solid orange;
 }
+
+fieldset{
+  margin-bottom: 10px;
+}

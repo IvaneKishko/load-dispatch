@@ -1,10 +1,13 @@
 const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const HttpError = require("../models/http-error");
 const User = require("../models/user");
 
 const getUserById = (req, res, next) => {
   const userId = req.params.uid;
+  // when i implement this with mongo, it should be like users = await.User.find({}, -password) to not return password with user object
   const user = DUMMY_USERS.find((user) => user.id === userId);
 
   if (!user) {
@@ -15,15 +18,12 @@ const getUserById = (req, res, next) => {
 };
 
 const signup = async (req, res, next) => {
-  console.log(req.body);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.error(errors.array()); // Log validation errors to the console
     return next(
       new HttpError("Invalid inputs passed, please check your data.", 422)
     );
   }
-  console.log("ss");
 
   const { companyName, email, password, role, phoneNumber } = req.body;
 
@@ -41,14 +41,24 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  let hashedPassword;
+  try {
+    hashedPassword = await bcrypt.hash(password, 12);
+  } catch (err) {
+    const error = new HttpError(
+      "Could not create user, please try again.",
+      500
+    );
+    return next(error);
+  }
+
   const createdUser = new User({
     companyName,
     email,
-    password,
+    password: hashedPassword,
     role,
     phoneNumber,
-    image:
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
+    image: req.file.path,
     loads: [],
   });
 
@@ -59,7 +69,25 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
-  res.status(201).json({ user: createdUser.toObject({ getters: true }) });
+  let token;
+  try {
+    token = jwt.sign(
+      { userId: createdUser.id, email: createdUser.email },
+      "supersecret_dont_share",
+      { expiresIn: "1h" }
+    );
+  } catch (err) {
+    const error = new HttpError("Sign up failed, please try again", 500);
+    return next(error);
+  }
+  console.log(token)
+
+  res.status(201).json({
+    userId: createdUser.id,
+    email: createdUser.email,
+    role: createdUser.role,
+    token: token,
+  });
 };
 
 const login = async (req, res, next) => {
@@ -73,14 +101,47 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
-  if (!existingUser || existingUser.password !== password) {
-    const error = new HttpError("Invalid credentials, couldn't log in", 401);
+  if (!existingUser) {
+    const error = new HttpError("Invalid credentials, couldn't log in", 403);
     return next(error);
   }
 
+  let isValidPassword = false;
+  try {
+    isValidPassword = await bcrypt.compare(password, existingUser.password);
+  } catch (err) {
+    const error = new HttpError(
+      "Could not log you in, check your credentials",
+      500
+    );
+    return next(error);
+  }
+
+  if (!isValidPassword) {
+    const error = new HttpError("Logging in failed, please try again", 500);
+    return next(error);
+  }
+
+  let token;
+  try {
+    token = jwt.sign(
+      { userId: existingUser.id, email: existingUser.email },
+      "supersecret_dont_share",
+      { expiresIn: "1h" }
+    );
+  } catch (err) {
+    const error = new HttpError("Logging in failed, please try again", 500);
+    return next(error);
+  }
+
+  console.log(token)
+
   res.json({
-    message: "Logged in",
-    user: existingUser.toObject({ getters: true }),
+    userId: existingUser.id,
+    companyName: existingUser.companyName,
+    email: existingUser.email,
+    role: existingUser.role,
+    token: token,
   });
 };
 

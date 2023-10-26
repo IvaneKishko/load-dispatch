@@ -24,12 +24,12 @@ const LoadsList = (props) => {
           price={load.price}
           model={load.model}
           payment={load.payment}
-          companyName={load.creator}
+          companyName={load.companyName}
           pickupDate={load.pickupDate}
           dropOffDate={load.dropOffDate}
-          phone={load.phone}
-          pickupPlace={load.pickupPlace}
-          dropOffPlace={load.dropOffPlace}
+          phoneNumber={load.phoneNumber}
+          pickupLocation={load.pickupLocation}
+          dropOffLocation={load.dropOffLocation}
           image={load.image}
         />
       ))}

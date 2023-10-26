@@ -19,19 +19,17 @@ import { AuthContext } from "./shared/context/auth.context";
 import { useAuth } from "./shared/hooks/auth-hook";
 // context da ak una shevcvalo loginebi
 
-
 const App = () => {
-  const {token, login, logout, userId, companyName} = useAuth();
-
+  const { token, login, logout, userId, companyName , role} = useAuth();
+  
   let routes;
-
   if (token) {
     routes = (
       <React.Fragment>
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/:userId/loads" element={<UserLoads />} />
-        <Route exact path="/loads" element={<Loads />} />
         <Route exact path="/loads/new" element={<NewLoad />} />
+        <Route exact path="/loads" element={<Loads />} />
         <Route exact path="/loads/:loadId/edit" element={<UpdateLoad />} />
         <Route exact path="/loads/:loadId" element={<Load />} />
         <Route exact path="/users/:userId" element={<User />} />
@@ -53,6 +51,7 @@ const App = () => {
       value={{
         isLoggedIn: !!token,
         token: token,
+        role: role,
         companyName: companyName,
         userId: userId,
         login: login,

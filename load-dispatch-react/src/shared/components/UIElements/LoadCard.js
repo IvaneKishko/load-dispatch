@@ -10,13 +10,19 @@ const LoadCard = (props) => {
         <img src={props.image} alt="car" />
       </div>
       <div className="load-card__content">
-        <span>{props.payment} / Certified</span>
-        <h4>${props.price}</h4>
-        <span className="load-item__label">Company</span>
-        <h4>{props.companyName}</h4>
-        <a href={`tel:${props.phone}`}>
-          <span>Tel: {props.phone}</span>
-        </a>
+        <div>
+          <span>{props.payment} / Certified</span>
+          <h4>${props.price}</h4>
+        </div>
+        <div>
+          <span className="load-item__label">Company</span>
+          <h4>{props.companyName}</h4>
+        </div>
+        <div>
+          <a href={`tel:${props.phoneNumber}`}>
+            <span>Tel: {props.phoneNumber}</span>
+          </a>
+        </div>
       </div>
       <div className="load-item__pick-drop">
         <a>
@@ -25,7 +31,7 @@ const LoadCard = (props) => {
         </a>
         <a>
           <span className="load-item__label">Destination</span>
-          <h4>{props.dropOffPlace}</h4>
+          <h4>{props.dropOffLocation}</h4>
         </a>
         <a>
           <span className="load-item__label">Pickup Date</span>

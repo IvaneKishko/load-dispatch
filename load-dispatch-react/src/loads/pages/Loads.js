@@ -16,7 +16,6 @@ const Loads = (props) => {
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadsData, setLoadsData] = useState([]);
-
   useEffect(() => {
     const fetchLoads = async () => {
       try {

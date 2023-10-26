@@ -5,3 +5,11 @@
     right: 0;
     padding: 0 2rem;
 }
+
+@media (max-width: 850px) {
+    .loads-list{
+        width: 100%;
+        right: none;
+        top: 110px;
+    }
+}

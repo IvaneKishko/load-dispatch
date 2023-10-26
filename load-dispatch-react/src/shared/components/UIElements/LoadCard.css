@@ -1,36 +1,68 @@
-.load-card img{
-    height: 200px;
-    width: auto;
+.load-card img {
+  height: 200px;
+  width: auto;
 }
 
-.load-card{
-    margin: 5rem auto;
-    border-radius: 5px;
+.load-card {
+  margin: 5rem auto;
+  border-radius: 5px;
+  display: flex;
+  padding: 50px 75px;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  align-items: center;
+  width: 80%;
+}
+
+.load-card h4 {
+  margin: 0;
+}
+
+.load-card__auto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.load-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.load-item__label {
+  margin-top: 20px;
+}
+
+/* ... [Your existing CSS for LoadCard Component] ... */
+
+@media (max-width: 850px) {
+  .load-card {
+    flex-direction: column;
+    padding: 20px;
+    width: 95%; /* Adjusted to take more space on smaller screens */
+  }
+
+  .load-card > .load-card__auto, .load-card__content, .load-item__pick-drop {
     display: flex;
-    padding: 50px 75px;
-    justify-content: space-between;
-    background-color: #F2F2F2;
+    width: 100%;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: center;
-    width: 80%;
-}
-
-.load-card h4{
-    margin: 0;
-}
-
-.load-card__auto{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-}
-
-.load-card__content{
-    display: flex;
-    flex-direction: column;
     gap: 5px;
-}
+  }
 
-.load-item__label{
-    margin-top: 20px;
+  .load-card img {
+    height: 100px; /* Slightly reduce the image size for mobile */
+  }
+
+  .load-card__auto,
+  .load-card__content {
+    margin-bottom: 20px; /* Add space between sections */
+  }
+
+  .load-item__label {
+    margin-top: 10px; /* Reduce margin-top for mobile */
+  }
 }

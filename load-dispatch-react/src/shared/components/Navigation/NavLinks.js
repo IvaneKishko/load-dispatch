@@ -3,9 +3,13 @@ import { NavLink } from "react-router-dom";
 
 import "./NavLinks.css";
 import { AuthContext } from "../../context/auth.context";
+import { useAuth } from "../../../shared/hooks/auth-hook";
 
 const NavLinks = () => {
   const auth = useContext(AuthContext);
+  const { token, login, logout, userId, companyName , role} = useAuth();
+
+  console.log(auth.userId, userId)
 
   return (
     <ul className="nav-links">
@@ -18,7 +22,7 @@ const NavLinks = () => {
       )}
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/:userId/loads">MY PLACES</NavLink>
+          <NavLink to={`/${auth.userId}/loads`}>MY PLACES</NavLink>
         </li>
       )}
       {auth.isLoggedIn && (

@@ -46,3 +46,7 @@
         flex-direction: column;
     }
 }
+
+.span-bold{
+    font-weight: 600;
+}

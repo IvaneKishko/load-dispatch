@@ -9,38 +9,48 @@ const InfoSection = () => {
       <section className="info-section">
         <div className="info-section__card">
           <div className="info-section__card-text">
-            <h3>How it Works?</h3>
+            <h3>How it Works? - Clients</h3>
             <p>
-              Sign Up: Create your free account to get started.
-              Post Your Load: List your cargo or automobile details, including
-              pick-up and drop-off locations, weight, dimensions, and contact
-              info. Get Matched: Your transportation request is now visible to
-              our network of verified transporters. Review Offers: Transporters
+              <span className="span-bold">Sign Up</span> - Create your free
+              account to get started.
+              <br />
+              <span className="span-bold">Post Your Load</span> - List your
+              cargo or automobile details, including pick-up and drop-off
+              locations, weight, and contact info.
+              <br />
+              <span className="span-bold">Wait for Transporters</span> -
+              Transportation companies will contact you in the matter of minutes
+              <br />
+              <span className="span-bold">Review Offers</span> - Transporters
               interested in your listing will contact you. Discuss terms and
-              make your choice. Schedule Transportation: Coordinate pickup and
-              delivery dates with your chosen transporter. Your Items Are On The
-              Move: Track your cargo or automobile until it safely reaches its
-              destination.
+              make your choice.
+              <br />
+              <span className="span-bold">Schedule</span> - Transportation:
+              Coordinate pickup and delivery dates with your chosen transporter.
+              Your Items Are On The
+              <br />
+              <span className="span-bold">Move</span> - Track your cargo or
+              automobile until it safely reaches its destination.
             </p>
           </div>
           <img src={truck} alt="truck" />
         </div>
         <div className="info-section__card">
           <div className="info-section__card-text">
-            <h3>How it Works?</h3>
+            <h3>
+              How it Works? - <span className="span-bold">Transporters</span>
+            </h3>
             <p>
-              We are Cargo transportation firm with great reputation in Timely
-              delivery of goods both In the country, our region and world-wide.
-              We ferry goods in High Quality Storage facilities that can handles
-              any category of goods , perishable or non-perishable, high-risk
-              goods and the vice , imports or exports, large quantity or small
-              quantity and many more.. we've been in business operation for over
-              100 years and we have thrive in the market for we have given the
-              best Services to our esteemed customers and companies that
-              entrusted us with their goods. We are looking forward to give our
-              Services at an affordable price that suites all individuals and
-              striving small companies. Our customers have given best reviews
-              concerning the kind of Services we offer to them.
+              <span className="span-bold">Sign Up</span> - Create your free
+              account to get started.
+              <br />
+              <span className="span-bold">Discover Premium Loads</span> - Explore the best transportation opportunities in your vicinity with our advanced filter capabilities. Ensure seamless logistics by selecting the ideal loads for your needs.
+              <br />
+              <span className="span-bold">Engage with Clients</span> - Foster meaningful connections by seamlessly reaching out to clients at your
+              <br />
+              <span className="span-bold">Schedule Transportation</span> - Optimize your transportation plans by effortlessly coordinating pickup and delivery dates with clients.
+              <br />
+              <span className="span-bold">Transport with Confidence</span> - Monitor your consignments in real-time, ensuring each shipment arrives at its destination securely and on time.
             </p>
           </div>
           <img src={truck} alt="truck" />

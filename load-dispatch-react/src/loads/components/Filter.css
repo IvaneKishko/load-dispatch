@@ -1,3 +1,4 @@
+
 .filter-form{
     display: flex;
     position: fixed;
@@ -19,4 +20,28 @@
 
 .filter-label{
     font-weight: 700;
+}
+
+@media (max-width: 850px) {
+    .filter-form {
+        width: 100%;        /* Covers the full width of the screen */
+        height: auto;       /* Adjusts the height based on its content */
+        top: 70px;             /* Positions it at the very top */
+        padding: 10px 5%;   /* Some padding for breathing space */
+        flex-direction: row;  /* Elements laid out horizontally */
+        flex-wrap: wrap;     /* If there isn't enough space, elements can wrap to the next line */
+        justify-content: space-between; /* Distribute items evenly */
+        align-items: center; /* Vertically align items in the center */
+        background-color: #f9f9f9; /* Optional: give it a background color to stand out */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        z-index: 1;
+    }
+
+    .filter-form button {
+        margin: 0;
+    }
+
+    .filter-form > div {
+        margin: 5px 0;      /* Spacing between each filter group */
+    }
 }

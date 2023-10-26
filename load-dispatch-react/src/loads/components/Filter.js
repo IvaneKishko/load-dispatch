@@ -50,7 +50,7 @@ const Filter = (props) => {
           onChange={handleDropOffCityChange}
         />
       </div>
-      <div>
+      <div className="last-div">
         <label htmlFor="minPrice" className="filter-label">
           Minimum Price:
         </label>
@@ -63,7 +63,7 @@ const Filter = (props) => {
           onBlur={handleMinPriceChange}
         />
       </div>
-      <Button onClick={props.onResetFilters}>Clear Filters</Button>
+      <Button onClick={props.onResetFilters} className="auth-button">Clear Filters</Button>
     </form>
   );
 };

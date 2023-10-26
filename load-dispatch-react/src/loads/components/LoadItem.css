@@ -1,40 +1,88 @@
-.load-item{
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 150px;
+.load-item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
 }
 
-.load-item h4{
-    margin: 0;
-    padding: 0;
+.load-item-link,
+.load-item-link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.load-item h4 {
+  margin: 0;
+  padding: 0;
 }
 
 .load-item > * {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  gap: 80px;
 }
 
-.load-item span{
-    color: grey;
+.load-item__company-date,
+.load-item__pick-drop,
+.load-item__price-model {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
 }
 
-.load-item__label{
-    font-size: 10px;
+.load-item span {
+  color: grey;
 }
 
-.load-item__pick-drop a{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.load-item .load-item__label {
+  font-size: 10px;
+  margin: 0;
 }
 
-.load-item__pick-drop__img{
-    height: 100px;
-    width: 100px;
-    border-radius: 5px;
+.load-item__pick-drop a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.load-item__pick-drop__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+/* Mobile Styles */
+@media (max-width: 850px) {
+  .load-item {
+    flex-direction: column; /* Stack children vertically */
+    gap: 10px;
+    height: auto; /* Allow it to adjust its height automatically */
+  }
+
+  .load-item__left-upper,
+  .load-item__right-lower {
+    width: 100%;
+    flex-direction: row; /* Children in a row */
+    justify-content: space-between; /* Push children to start and end */
+    align-items: center;
+
+  }
+
+  /* You may need to adjust gaps or any other style here if necessary */
+  .load-item__company-date,
+  .load-item__pick-drop,
+  .load-item__price-model {
+    gap: 10px; /* Adjusted for smaller screens, can be changed as per requirement */
+  }
+
+  .load-item > * {
+    gap: 20px; /* Adjusted for smaller screens, can be changed as per requirement */
+  }
+
+  .load-item__pick-drop__img {
+    margin-left: auto; /* Pushes the image to the right */
+  }
 }

@@ -35,6 +35,10 @@ const NewLoad = () => {
       value: "",
       isValid: false,
     },
+    phoneNumber: {
+      value: "",
+      isValid: false,
+    },
     pickupDate: {
       value: "",
       isValid: false,
@@ -56,7 +60,7 @@ const NewLoad = () => {
 
   const placeSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log("Sending token:", auth.token);
+    console.log("Sending token:", auth.companyName);
     try {
       const formData = new FormData();
       formData.append("model", formState.model);
@@ -64,13 +68,15 @@ const NewLoad = () => {
       formData.append("pickupLocation", formState.pickupLocation);
       formData.append("dropOffLocation", formState.dropOffLocation);
       formData.append("price", formState.price);
+      formData.append("phoneNumber", formState.phoneNumber);
       formData.append("payment", formState.payment);
       formData.append("address", formState.address);
       formData.append("image", formState.image.value);
+      formData.append("companyName", auth.companyName);
       await sendRequest("http://localhost:5000/api/loads", "POST", formData, {
         Authorization: "Bearer " + auth.token,
       });
-      navigate('/loads')
+      navigate("/loads");
     } catch (err) {}
   };
 
@@ -164,6 +170,16 @@ const NewLoad = () => {
           required
         />
         <Input
+          id="phoneNumber"
+          element="input"
+          type="tel"
+          label="Phone Number"
+          name="phoneNumber"
+          onChange={handleChange}
+          value={formState.phoneNumber.value}
+          required
+        />
+        <Input
           id="pickupDate"
           element="date"
           type="date"
@@ -212,10 +228,10 @@ const NewLoad = () => {
         </div>
         <ImageUpload
           id="image"
-          center
           onInput={imageInputHandler}
           required
-          errorText="Please provide an image"
+          center
+          errorText=""
         />
         <Button type="submit">ADD LOAD</Button>
       </form>

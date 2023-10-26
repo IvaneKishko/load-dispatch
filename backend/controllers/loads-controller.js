@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const { v4: uuid } = require("uuid");
 const { validationResult } = require("express-validator");
 
@@ -9,7 +11,6 @@ const { default: mongoose } = require("mongoose");
 
 const getLoadById = async (req, res, next) => {
   const loadId = req.params.lid;
-  console.log(loadId);
 
   let load;
   try {
@@ -31,7 +32,6 @@ const getLoadById = async (req, res, next) => {
 };
 
 const getLoads = async (req, res, next) => {
-
   let loads;
   try {
     loads = await Load.find();
@@ -48,10 +48,11 @@ const getLoads = async (req, res, next) => {
     return next(error);
   }
 
-  res.json({ loads: loads.map(load => load.toObject({ getters: true }))});
+  res.json({ loads: loads.map((load) => load.toObject({ getters: true })) });
 };
 
 const getLoadsByUserId = async (req, res, next) => {
+  console.log('getloadsbyuserid')
   const userId = req.params.uid;
 
   let loads;
@@ -69,7 +70,7 @@ const getLoadsByUserId = async (req, res, next) => {
     const error = new HttpError("Could not find load or provided id.", 404);
     return next(error);
   }
-
+  console.log(loads)
   res.json({ loads: loads.map((load) => load.toObject({ getters: true })) });
 };
 
@@ -81,7 +82,17 @@ const createLoad = async (req, res, next) => {
     );
   }
 
-  const { model, pickupDate, pickupLocation, dropOffLocation, price, payment, address, creator } = req.body;
+  const {
+    model,
+    pickupDate,
+    pickupLocation,
+    dropOffLocation,
+    price,
+    phoneNumber,
+    payment,
+    address,
+    companyName,
+  } = req.body;
 
   let coordinates;
   try {
@@ -96,17 +107,18 @@ const createLoad = async (req, res, next) => {
     pickupLocation,
     dropOffLocation,
     price,
+    phoneNumber,
     payment,
     address,
+    companyName,
     location: coordinates,
-    image:
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
-    creator,
+    image: req.file.path,
+    creator: req.userData.userId,
   });
 
   let user;
   try {
-    user = await User.findById(creator);
+    user = await User.findById(req.userData.userId);
   } catch (err) {
     console.log(err);
     const error = new HttpError("Creating load failed, please try again", 500);
@@ -128,6 +140,7 @@ const createLoad = async (req, res, next) => {
     await user.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
+    console.log(err)
     const error = new HttpError("Creating load failed, please try again", 500);
     return next(error);
   }
@@ -138,6 +151,7 @@ const createLoad = async (req, res, next) => {
 const updateLoad = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.log(errors);
     return new HttpError("Invalid inputs passed, please check your data.", 422);
   }
 
@@ -152,15 +166,20 @@ const updateLoad = async (req, res, next) => {
       "Couldn't update load, something went wrong",
       500
     );
+    return next(error);
+  }
 
+  if (load.creator.toString() !== req.userData.userId) {
+    const error = new HttpError("You are not allowed to edit this load", 401);
     return next(error);
   }
 
   load.model = model;
   load.price = price;
-
+  console.log(load);
   try {
     await load.save();
+    console.log("saved");
   } catch (err) {
     const error = new HttpError(
       "Could not update place something went wrong",
@@ -191,6 +210,13 @@ const deleteLoad = async (req, res, next) => {
     return next(error);
   }
 
+  if (load.creator.id !== req.userData.userId) {
+    const error = new HttpError("You are not allowed to delete this load", 401);
+    return next(error);
+  }
+
+  const imagePath = load.image;
+
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
@@ -206,9 +232,12 @@ const deleteLoad = async (req, res, next) => {
     return next(error);
   }
 
+  fs.unlink(imagePath, (err) => {
+    console.log(err);
+  });
+
   res.status(200).json({ message: "Deleted load" });
 };
-
 
 exports.getLoadById = getLoadById;
 exports.getLoads = getLoads;

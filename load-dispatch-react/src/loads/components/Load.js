@@ -60,7 +60,7 @@ const Load = () => {
     } catch (err) {}
     navigate(`/loads`);
   };
-  console.log(load);
+  console.log(auth.companyName);
 
   return (
     <React.Fragment>
@@ -108,9 +108,9 @@ const Load = () => {
             payment={load.payment}
             price={load.price}
             companyName={load.companyName}
-            phone={load.phone}
+            phoneNumber={load.phoneNumber}
             pickupLocation={load.pickupLocation}
-            dropOffPlace={load.dropOffPlace}
+            dropOffLocation={load.dropOffLocation}
             pickupDate={load.pickupDate}
           />
           <div className="load-card__settings">

@@ -104,7 +104,7 @@ const Auth = () => {
             "Content-Type": "application/json", // Correct way to set headers
           }
         );
-        auth.login(responseData.userId, responseData.token, responseData.companyName);
+        auth.login(responseData.userId, responseData.token, responseData.companyName, responseData.role);
       } catch (err) {
         // we are handling this in http hook
       }
@@ -127,7 +127,7 @@ const Auth = () => {
           formData
         );
 
-        auth.login(responseData.userId, responseData.token);
+        auth.login(responseData.userId, responseData.token, responseData.token);
       } catch (err) {
         // we are handling this in http hook
       }
