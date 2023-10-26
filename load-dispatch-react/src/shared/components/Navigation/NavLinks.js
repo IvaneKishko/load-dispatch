@@ -7,25 +7,25 @@ import { useAuth } from "../../../shared/hooks/auth-hook";
 
 const NavLinks = () => {
   const auth = useContext(AuthContext);
-  const { token, login, logout, userId, companyName , role} = useAuth();
+  const { token, login, logout, userId, companyName, role } = useAuth();
 
-  console.log(auth.userId, userId)
+  console.log(auth.role, role);
 
   return (
     <ul className="nav-links">
-      {auth.isLoggedIn && (
+      {auth.isLoggedIn && auth.role === "transporter" && (
         <li>
           <NavLink to="/loads" exact>
             ALL LOADS
           </NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {auth.isLoggedIn && auth.role === "client" && (
         <li>
           <NavLink to={`/${auth.userId}/loads`}>MY PLACES</NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {auth.isLoggedIn && auth.role === "client" && (
         <li>
           <NavLink to="/loads/new">ADD LOAD</NavLink>
         </li>

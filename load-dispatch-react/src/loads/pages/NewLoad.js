@@ -76,7 +76,7 @@ const NewLoad = () => {
       await sendRequest("http://localhost:5000/api/loads", "POST", formData, {
         Authorization: "Bearer " + auth.token,
       });
-      navigate("/loads");
+      navigate(`/${auth.userId}/loads`);
     } catch (err) {}
   };
 

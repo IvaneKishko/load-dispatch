@@ -20,6 +20,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 // context da ak una shevcvalo loginebi
 
 const App = () => {
+  const auth = useAuth();
   const { token, login, logout, userId, companyName , role} = useAuth();
   
   let routes;
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="*" element={<Navigate to="/" replace />} />
       </React.Fragment>
     );
+    // if no tokens
   } else {
     routes = (
       <React.Fragment>
