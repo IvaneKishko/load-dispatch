@@ -20,7 +20,7 @@ const Loads = (props) => {
     const fetchLoads = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/loads",
+          process.env.REACT_APP_BACKEND_URL + "/loads",
           'GET',
           null,
           {

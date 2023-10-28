@@ -33,7 +33,7 @@ const UpdateLoad = () => {
     const fetchLoad = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/loads/${loadId}`,
+          process.env.REACT_APP_BACKEND_URL + `/loads/${loadId}`,
           "GET",
           null,
           {
@@ -80,7 +80,7 @@ const UpdateLoad = () => {
     console.log(auth.token);
     try {
       await sendRequest(
-        `http://localhost:5000/api/loads/${loadId}`,
+        process.env.REACT_APP_BACKEND_URL + `/loads/${loadId}`,
         "PATCH",
         JSON.stringify({
           model: formState.model.value,

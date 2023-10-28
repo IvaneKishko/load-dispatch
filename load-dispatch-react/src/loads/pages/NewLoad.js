@@ -60,7 +60,7 @@ const NewLoad = () => {
 
   const placeSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log("Sending token:", auth.companyName);
+    console.log(process.env.REACT_APP_BACKEND_URL + "/loads");
     try {
       const formData = new FormData();
       formData.append("model", formState.model);
@@ -73,7 +73,7 @@ const NewLoad = () => {
       formData.append("address", formState.address);
       formData.append("image", formState.image.value);
       formData.append("companyName", auth.companyName);
-      await sendRequest("http://localhost:5000/api/loads", "POST", formData, {
+      await sendRequest(process.env.REACT_APP_BACKEND_URL + "/loads", "POST", formData, {
         Authorization: "Bearer " + auth.token,
       });
       navigate(`/${auth.userId}/loads`);

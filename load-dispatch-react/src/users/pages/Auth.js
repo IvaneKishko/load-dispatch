@@ -94,7 +94,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/login",
+          process.env.REACT_APP_BACKEND_URL + "/users/login",
           "POST",
           JSON.stringify({
             email: formState.email.value,
@@ -121,13 +121,13 @@ const Auth = () => {
           console.log(pair[0] + ", " + pair[1]);
         }
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/signup",
+          process.env.REACT_APP_BACKEND_URL + "/users/signup",
           "POST",
           // fetch api that we use under the hood automatically sets right headers for formdata
           formData
         );
 
-        auth.login(responseData.userId, responseData.token, responseData.token);
+        auth.login(responseData.userId, responseData.token, responseData.companyName, responseData.role);
       } catch (err) {
         // we are handling this in http hook
       }

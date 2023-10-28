@@ -9,7 +9,7 @@ const NavLinks = () => {
   const auth = useContext(AuthContext);
   const { token, login, logout, userId, companyName, role } = useAuth();
 
-  console.log(auth.role, role);
+  console.log(auth.role, role, 'ss');
 
   return (
     <ul className="nav-links">

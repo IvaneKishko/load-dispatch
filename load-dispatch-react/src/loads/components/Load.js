@@ -22,7 +22,7 @@ const Load = () => {
     const fetchLoad = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/loads/${loadId}`,
+          process.env.REACT_APP_BACKEND_URL + `/loads/${loadId}`,
           "GET",
           null,
           {
@@ -52,7 +52,7 @@ const Load = () => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/loads/${loadId}`,
+        process.env.REACT_APP_BACKEND_URL + `/loads/${loadId}`,
         "DELETE",
         null,
         { Authorization: "Bearer " + auth.token }
@@ -104,7 +104,7 @@ const Load = () => {
           </Modal>
           <LoadCard
             model={load.model}
-            image={`http://localhost:5000/${load.image}`}
+            image={`${process.env.REACT_APP_ASSET_URL}/${load.image}`}
             payment={load.payment}
             price={load.price}
             companyName={load.companyName}
