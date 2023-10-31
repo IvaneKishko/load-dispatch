@@ -26,11 +26,3 @@ Upgrading Communication Mechanism: To foster clearer communication between clien
 Introducing an Interactive Chat Feature: Based on the importance of direct communication, I plan to implement an interactive chat window post the acceptance of a load-moving request. This will be positioned right under the specific load details, facilitating instant discussions between clients and transporters. It's designed to enhance the coordination between both parties, ensuring mutual understanding and efficient service delivery.
 
 While these features are in the pipeline, they underscore my commitment to iterative development and my vision of always pushing the application's boundaries to offer even more value to its users.
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
